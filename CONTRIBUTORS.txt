@@ -9,6 +9,3 @@
 # they accept any liabilities with respect to them.
 
 - Rafael Corchuelo (corchu@us.es)
-- Ernesto Gutiérrez Contreras (erngutcon@alum.us.es)
-- Luis Cerrato Sánchez (luicersan@us.es)
-
