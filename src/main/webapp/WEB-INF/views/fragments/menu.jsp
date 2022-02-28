@@ -24,6 +24,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.bogdan-favourite-link" action="https://www.youtube.com/c/Matthornepottery/"/>
       		<acme:menu-suboption code="master.menu.anonymous.luis-favourite-link" action="https://www.justwatch.com/"/>
       		<acme:menu-suboption code="master.menu.anonymous.ernesto-favourite-link" action="https://www.twitch.tv/"/>
+      		<acme:menu-suboption code="master.menu.anonymous.regina-favourite-link" action="https://www.e-lactancia.org/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
