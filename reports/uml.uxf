@@ -739,11 +739,11 @@ bg=green</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>952</x>
-      <y>238</y>
+      <y>252</y>
       <w>140</w>
       <h>42</h>
     </coordinates>
-    <panel_attributes>initDate must be at least 
+    <panel_attributes>initDate must  be at least 
 one month after the patronage
 is created
 bg=pink</panel_attributes>
@@ -767,12 +767,12 @@ bg=pink</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1085</x>
-      <y>259</y>
+      <y>273</y>
       <w>63</w>
-      <h>77</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
