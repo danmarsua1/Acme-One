@@ -739,7 +739,7 @@ bg=green</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>952</x>
-      <y>259</y>
+      <y>238</y>
       <w>140</w>
       <h>42</h>
     </coordinates>
@@ -767,12 +767,12 @@ bg=pink</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1085</x>
-      <y>280</y>
+      <y>259</y>
       <w>63</w>
-      <h>56</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
