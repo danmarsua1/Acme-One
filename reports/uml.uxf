@@ -739,11 +739,11 @@ bg=green</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>952</x>
-      <y>259</y>
+      <y>252</y>
       <w>140</w>
       <h>42</h>
     </coordinates>
-    <panel_attributes>initDate must be at least 
+    <panel_attributes>initDate must  be at least 
 one month after the patronage
 is created
 bg=pink</panel_attributes>
@@ -767,12 +767,12 @@ bg=pink</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1085</x>
-      <y>280</y>
+      <y>273</y>
       <w>63</w>
-      <h>56</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -841,8 +841,7 @@ bg=green</panel_attributes>
 {Pattern="〈patronage-code〉:〈serial-number〉"}
 where "〈patronage-code〉" denotes the code
 of corresponding patronage and
-"〈serial-number〉" denotes a sequential number
-that starts at "0001" and gets increases
+"〈serial-number〉" Pattern = "^[0-9]{4}$" gets increases
 with every new patronage report
 
 bg=pink</panel_attributes>
