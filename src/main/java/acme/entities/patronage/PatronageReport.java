@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -23,10 +24,15 @@ import lombok.Setter;
 
 public class PatronageReport extends AbstractEntity {
 	
+	// Serialisation identifier -----------------------------------------------
+	
 	protected static final long serialVersionUID = 1L;
 	
-	@NotBlank
-	@Pattern(regexp = "<patronage-code>:<serial-number>")
+	// Attributes -------------------------------------------------------------
+	
+	@Pattern(regexp = "^[0-9]{4}$")
+    @Transient
+    @NotBlank
 	protected String sequenceNumber;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -35,9 +41,13 @@ public class PatronageReport extends AbstractEntity {
 	protected Date creationMoment;
 	
 	@NotBlank
-	@Length(max = 255)
+	@Length(min = 0, max = 255)
 	protected String memorandum;
 	
 	@URL
 	protected String link;
+	
+	// Derived attributes -----------------------------------------------------
+	
+	// Relationships ----------------------------------------------------------
 }
