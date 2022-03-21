@@ -39,7 +39,7 @@ public class Tool extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(min = 0, max = 100)
+	@Max(100)
 	protected String name
 	
 	@Column(unique=true)
@@ -47,11 +47,11 @@ public class Tool extends AbstractEntity {
 	protected String code;
 	
 	@NotBlank
-	@Length(min = 0, max = 100)
+	@Max(100)
 	protected String technology
 	
 	@NotBlank
-	@Length(min = 0, max = 255)
+	@Max(255)
 	protected String description;
 	
 	@Min(0)
