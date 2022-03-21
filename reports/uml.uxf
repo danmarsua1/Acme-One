@@ -685,7 +685,7 @@ Patronage
 + status: StatusPatronage
 + code: String {Pattern="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$",Unique}
 + legalStuff: String {NotBlank,Length(1,255)}
-+ budget: Double {Positive}
++ budget: Money
 + initDate: Date
 + finishDate: Date
 + link: String {Url} [0..1]
@@ -968,9 +968,9 @@ has ^
     <panel_attributes>&lt;&lt;Datatype&gt;&gt;
 Money
 --
-+ technology: String
-+ currency: String
-+ quantity: Double
++ technology: String {NotBlank}
++ currency: String {NotBlank}
++ quantity: Double {Positive,NotNull}
 + /price: Map&lt;Pair&lt;String,String&gt;,Double&gt;
 bg=green</panel_attributes>
     <additional_attributes/>
