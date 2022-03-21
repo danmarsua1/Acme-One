@@ -28,6 +28,12 @@ public class Quantity extends AbstractEntity {
 	private Integer quantity;
 	
 	
+	
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional=false)
@@ -37,9 +43,5 @@ public class Quantity extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional=false)
 	protected Item item;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
-
+	
 }
