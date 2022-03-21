@@ -36,24 +36,26 @@ public class Toolkit extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
+	
 	@Column(unique=true)
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String code;
 	
 	
 	@NotBlank
-	@Length(min = 0, max = 100)
+	@Max(100)
 	protected String title;
 	
 	@NotBlank
-	@Length(min = 0, max =255)
+	@Max(255)
 	protected String description;
 	
 	@NotBlank
-	@Length(min= 0, max = 255)
+	@Max(255)
 	protected String assemblyNotes;
 	
+	
+	protected boolean publish;
 	
 	@URL
 	protected String link;
