@@ -19,6 +19,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+import acme.framework.datatypes.Money;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
@@ -55,7 +56,7 @@ public class Tool extends AbstractEntity {
 	protected String description;
 	
 	@Min(0)
-	protected Double retailPrice;
+	protected Money retailPrice;
 	
 	@URL
 	protected String link;
