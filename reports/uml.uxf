@@ -154,10 +154,10 @@ bg=green</panel_attributes>
 Configuration
 --
 + currency: String {NotBlank,Pattern="^(EUR|GBP|USD)$"}
-+ acceptedCurrencies: String {NotBlank,Pattern="^$|(^[^,]+([,][^,]+)*$)"}
-+ strongSpam: String {NotBlank,Pattern="^$|(^[^,]+([,][^,]+)*$)"}
++ acceptedCurrencies: String {NotBlank,Pattern="^$|(^[^\.]+([\.][^\.]+)*$)"}
++ strongSpam: String {NotBlank,Pattern="^$|(^[^\.]+([\.][^\.]+)*$)"}
 + strongSpamThreshold: Double {Range(min=0.00,max=100.00)}
-+ weakSpam: String {NotBlank,Pattern="^$|(^[^,]+([,][^,]+)*$)"}
++ weakSpam: String {NotBlank,Pattern="^$|(^[^\.]+([\.][^\.]+)*$)"}
 + weakSpamThreshold: Double {Range(min=0.00,max=100.00)}
 + / isAcceptedCurrency: boolean
 + / isSpam: boolean
