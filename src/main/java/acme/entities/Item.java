@@ -31,7 +31,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Tool extends AbstractEntity {
+public class Item extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -39,8 +39,12 @@ public class Tool extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@NotNull
+	protected ItemType type;
+	
+	
 	@NotBlank
-	@Max(100)
+	@Length(max = 100)
 	protected String name
 	
 	@Column(unique=true)
@@ -48,14 +52,15 @@ public class Tool extends AbstractEntity {
 	protected String code;
 	
 	@NotBlank
-	@Max(100)
+	@Length(max = 100)
 	protected String technology
 	
 	@NotBlank
-	@Max(255)
+	@Length(max = 255)
 	protected String description;
 	
-	@Min(0)
+	@NotNull
+	@Valid
 	protected Money retailPrice;
 	
 	@URL
