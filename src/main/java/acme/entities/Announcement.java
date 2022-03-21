@@ -40,25 +40,24 @@ public class Announcement extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
-	@Max(101)
-	protected String				title;
-
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
-	protected Date					moment;
+	protected Date					creationMoment;
+	
+	@NotBlank
+	@Max(100)
+	protected String				title;
 
 	@NotBlank
-	@Max(256)
+	@Max(255)
 	protected String				body;
 	
-	
-	protected Boolean				critical;
+	protected Boolean				flag;
 
 	@URL
 	@Transient
-	protected String			info;
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 
