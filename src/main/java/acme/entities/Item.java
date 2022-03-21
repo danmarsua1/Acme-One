@@ -49,7 +49,7 @@ public class Item extends AbstractEntity {
 	
 	@NotBlank
 	@Length(max = 100)
-	protected String name
+	protected String name;
 	
 	@Column(unique=true)
 	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
@@ -57,7 +57,7 @@ public class Item extends AbstractEntity {
 	
 	@NotBlank
 	@Length(max = 100)
-	protected String technology
+	protected String technology;
 	
 	@NotBlank
 	@Length(max = 255)
