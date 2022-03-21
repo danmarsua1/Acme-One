@@ -654,7 +654,7 @@ bg=pink</panel_attributes>
       <x>1834</x>
       <y>427</y>
       <w>273</w>
-      <h>98</h>
+      <h>105</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Toolkit
@@ -776,7 +776,7 @@ send v
       <x>1155</x>
       <y>441</y>
       <w>224</w>
-      <h>77</h>
+      <h>84</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 PatronageReport
@@ -838,7 +838,7 @@ has v
       <x>1834</x>
       <y>91</y>
       <w>273</w>
-      <h>98</h>
+      <h>119</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Item
@@ -946,16 +946,16 @@ has v
     <id>Relation</id>
     <coordinates>
       <x>1960</x>
-      <y>182</y>
+      <y>203</y>
       <w>49</w>
-      <h>140</h>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 m2=0..*
 has ^
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
