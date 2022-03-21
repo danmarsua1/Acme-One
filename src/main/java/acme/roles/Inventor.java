@@ -35,16 +35,16 @@ public class Inventor extends UserRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Max(101)
+	@Max(100)
 	protected String			company;
 	
 	@NotBlank
-	@Max(256)
+	@Max(255)
 	protected String			statement;
 
 	@URL
 	@Transient
-	protected String			info;
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 
