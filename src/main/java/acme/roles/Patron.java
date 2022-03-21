@@ -14,9 +14,9 @@ package acme.roles;
 
 import javax.persistence.Entity;
 import javax.persistence.Transient;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.roles.UserRole;
@@ -35,11 +35,11 @@ public class Patron extends UserRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Max(100)
+	@Length(max = 100)
 	protected String			company;
 	
 	@NotBlank
-	@Max(255)
+	@Length(max = 255)
 	protected String			statement;
 
 	@URL
