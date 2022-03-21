@@ -1,4 +1,4 @@
 key,status,code,legal-stuff,budget,creation-date,start-date,end-date,link
-patronage-01,PROPOSED,CODE-001-A,Legal,EUR 10.0,"2020/01/01 10:00","2020/02/01 11:00","2020/03/01 12:00",https://www.link1.com
-patronage-02,ACCEPTED,CODE-002-A,Legal,USD 10.0,"2021/01/01 10:00","2021/02/01 11:00","2021/03/01 12:00",https://www.link2.com
-patronage-03,DENIED,CODE-003-A,Illegal,GBP 10.0,"2022/01/01 10:00","2022/02/01 11:00","2022/03/01 12:00",https://www.link3.com
+patronage-01,PROPOSED,COD-001-A,Legal,EUR 10.0,"2020/01/01 10:00","2020/02/01 11:00","2020/03/01 12:00",https://www.link1.com
+patronage-02,ACCEPTED,COD-002-A,Legal,USD 10.0,"2021/01/01 10:00","2021/02/01 11:00","2021/03/01 12:00",https://www.link2.com
+patronage-03,DENIED,COD-003-A,Illegal,GBP 10.0,"2022/01/01 10:00","2022/02/01 11:00","2022/03/01 12:00",https://www.link3.com
