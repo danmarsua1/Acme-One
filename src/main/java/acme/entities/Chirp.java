@@ -38,21 +38,21 @@ public class Chirp extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
-	@Max(101)
-	protected String				title;
-
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
-	protected Date					moment;
+	protected Date					creationMoment;
+	
+	@NotBlank
+	@Max(100)
+	protected String				title;
 
 	@NotBlank
-	@Max(101)
+	@Max(100)
 	protected String				author;
 
 	@NotBlank
-	@Max(256)
+	@Max(255)
 	protected String				body;
 
 	@Transient
