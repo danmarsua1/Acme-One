@@ -71,13 +71,16 @@ public class Item extends AbstractEntity {
 	protected String link;
 	
 	
+	
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional=false)
 	protected Inventor inventor;
 
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
 
 }
