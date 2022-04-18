@@ -1,2 +1,2 @@
-key,item-type,name,code,technology,description,retail-price,link,key:inventor
-item-01,Component,Item1,AAA-111-A,C++,C++ is a compiled language,"GBP 10.0",https://www.item1.com,inventor-01
+key,type,name,code,technology,description,retail-price,link,key:inventor
+item-01,COMPONENT,Item1,AAA-111-A,C++,C++ is a compiled language,GBP 10.0,https://www.item1.com,inventor-01
