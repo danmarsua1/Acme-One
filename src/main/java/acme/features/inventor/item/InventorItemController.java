@@ -16,23 +16,21 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.entities.Item;
 import acme.framework.controllers.AbstractController;
-import acme.framework.roles.Authenticated;
 import acme.roles.Inventor;
 
 @Controller
-public class AuthenticatedInventorItemController extends AbstractController<Inventor, Item> {
+public class InventorItemController extends AbstractController<Inventor, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedInventorItemListService	listService;
+	protected InventorItemListService	listService;
 
 	@Autowired
-	protected AuthenticatedInventorItemShowService	showService;
+	protected InventorItemShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -40,7 +38,7 @@ public class AuthenticatedInventorItemController extends AbstractController<Inve
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list", this.listService);
-		//super.addCommand("show", this.showService);
+		super.addCommand("show", this.showService);
 	}
 
 }

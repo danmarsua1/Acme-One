@@ -1,5 +1,5 @@
 /*
- * AuthenticatedInventorToolListService.java
+ * InventorItemListService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -24,12 +24,12 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class AuthenticatedInventorItemListService implements AbstractListService<Inventor, Item> {
+public class InventorItemListService implements AbstractListService<Inventor, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedInventorItemRepository repository;
+	protected InventorItemRepository repository;
 
 	// AbstractCreateService<Authenticated, Inventor> ---------------------------
 

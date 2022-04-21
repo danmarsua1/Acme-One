@@ -1,5 +1,5 @@
 /*
- * AuthenticatedConsumerRepository.java
+ * InventorItemRepository.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -23,7 +23,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Consumer;
 
 @Repository
-public interface AuthenticatedInventorItemRepository extends AbstractRepository {
+public interface InventorItemRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
@@ -33,5 +33,8 @@ public interface AuthenticatedInventorItemRepository extends AbstractRepository 
 
 	@Query("select i from Item i where i.inventor.id = :id")
 	Collection<Item> findManyItemsByInventor(int id);
+	
+	@Query("select i from Item i where i.id = :id")
+	Item findOneItemById(int id);
 
 }
