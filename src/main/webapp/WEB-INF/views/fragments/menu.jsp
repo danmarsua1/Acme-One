@@ -15,6 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
@@ -40,6 +41,12 @@
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.user-accounts" action="/any/user-account/list"/>
 		</acme:menu-option>
+		
+		<sec:authorize access="hasRole('Inventor')">
+			<acme:menu-option code="master.menu.inventor">
+				<acme:menu-suboption code="master.menu.inventor.items" action="/inventor/item/list"/>
+			</acme:menu-option>
+		</sec:authorize>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
