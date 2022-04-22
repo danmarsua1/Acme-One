@@ -1,2 +1,4 @@
 key,quantity,key:toolkit,key:item
-quantity-01,1,toolkit-01,item-01
+quantity-01,6,toolkit-01,item-01
+quantity-02,4,toolkit-01,item-02
+quantity-03,4,toolkit-02,item-04
