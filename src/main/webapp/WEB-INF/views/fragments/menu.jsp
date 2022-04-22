@@ -40,6 +40,7 @@
 		
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.user-accounts" action="/any/user-account/list"/>
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 		</acme:menu-option>
 		
 		<sec:authorize access="hasRole('Inventor')">
