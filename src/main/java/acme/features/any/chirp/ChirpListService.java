@@ -13,8 +13,6 @@
 package acme.features.any.chirp;
 
 import java.util.Collection;
-import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +34,6 @@ public class ChirpListService implements AbstractListService<Any, Chirp> {
 	@Override
 	public boolean authorise(final Request<Chirp> request) {
 		assert request!=null;
-		
 		return true;
 	}
 
@@ -46,17 +43,7 @@ public class ChirpListService implements AbstractListService<Any, Chirp> {
 		
 		Collection<Chirp> result;
 		
-		final Date currentDate = new java.util.Date();
 		result = this.repository.findAllChirps();
-		List<Chirp> r;
-		r = this.repository.findAllChirps();
-//		for(int i = 0; i<r.size();i++) {
-//			final Chirp c = r.get(i);
-//			
-//			if(c.getCreationMoment()<) {
-//				result.add(null);
-//			}
-//		}
 		
 		return result;
 	}
@@ -70,44 +57,5 @@ public class ChirpListService implements AbstractListService<Any, Chirp> {
 		request.unbind(entity, model, "creationMoment","title","author","body","email");
 	}
 
-	// AbstractListService<Employer, Duty> interface ---------------------------
-
-
-//	@Override
-//	public boolean authorise(final Request<Duty> request) {
-//		assert request != null;
-//
-//		boolean result;
-//		int masterId;
-//		Job job;
-//
-//		masterId = request.getModel().getInteger("masterId");
-//		job = this.repository.findOneJobById(masterId);
-//		result = !job.isDraftMode();
-//
-//		return result;
-//	}
-//
-//	@Override
-//	public Collection<Duty> findMany(final Request<Duty> request) {
-//		assert request != null;
-//
-//		Collection<Duty> result;
-//		int masterId;
-//
-//		masterId = request.getModel().getInteger("masterId");
-//		result = this.repository.findManyDutiesByMasterId(masterId);
-//
-//		return result;
-//	}
-//	
-//	@Override
-//	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
-//		assert request != null;
-//		assert entity != null;
-//		assert model != null;
-//
-//		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
-//	}
 
 }

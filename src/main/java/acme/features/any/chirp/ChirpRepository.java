@@ -12,7 +12,7 @@
 
 package acme.features.any.chirp;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -26,11 +26,7 @@ public interface ChirpRepository extends AbstractRepository {
 	@Query("select c from Chirp c where c.id = :id")
 	Chirp findOneChirpById(int id);
 	
-	@Query("select c from Chirp c")
-	List<Chirp> findAllChirps();
+	@Query("select c from Chirp c where TO_DAYS(current_date()) - TO_DAYS(c.creationMoment) < 60")
+	Collection<Chirp> findAllChirps();
 	
-	//Falta el método para obtener Ids de menos de un mes
-//	@Query("select c from Chirp c where c.creation_moment < actualDate")
-//	Collection<Chirp> findRecentChirps(Date currentDate);
-
 }

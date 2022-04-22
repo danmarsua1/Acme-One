@@ -16,29 +16,31 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.entities.Chirp;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Any;
 
 @Controller
+@RequestMapping("/any/chirp/")
 public class ChirpController extends AbstractController<Any, Chirp> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ChirpShowService	showService;
-
-	@Autowired
 	protected ChirpListService	listService;
+	
+	@Autowired
+	protected ChirpShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCommand("show", this.showService);
 		super.addCommand("list", this.listService);
+		super.addCommand("show", this.showService);
 	}
 
 }
