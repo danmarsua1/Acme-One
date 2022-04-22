@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderController.java
+ * AdministratorUserAccountController.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.provider;
+package acme.features.any.useraccount;
 
 import javax.annotation.PostConstruct;
 
@@ -19,28 +19,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.framework.controllers.AbstractController;
-import acme.framework.roles.Authenticated;
-import acme.roles.Provider;
+import acme.framework.entities.UserAccount;
+import acme.framework.roles.Any;
 
 @Controller
-//@RequestMapping("/authenticated/provider/")
-public class AuthenticatedProviderController extends AbstractController<Authenticated, Provider> {
+@RequestMapping("/any/user-account/")
+public class AnyUserAccountController extends AbstractController<Any, UserAccount> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedProviderCreateService	createService;
+	protected AnyUserAccountListService	listService;
 
 	@Autowired
-	protected AuthenticatedProviderUpdateService	updateService;
+	protected AnyUserAccountShowService	showService;
+
+
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCommand("create", this.createService);
-		super.addCommand("update", this.updateService);
+		super.addCommand("list", this.listService);
+		super.addCommand("show", this.showService);
+
 	}
 
 }

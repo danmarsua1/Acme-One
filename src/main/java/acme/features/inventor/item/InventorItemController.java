@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderController.java
+ * AuthenticatedConsumerController.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,37 +10,35 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.provider;
+package acme.features.inventor.item;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.entities.Item;
 import acme.framework.controllers.AbstractController;
-import acme.framework.roles.Authenticated;
-import acme.roles.Provider;
+import acme.roles.Inventor;
 
 @Controller
-//@RequestMapping("/authenticated/provider/")
-public class AuthenticatedProviderController extends AbstractController<Authenticated, Provider> {
+public class InventorItemController extends AbstractController<Inventor, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedProviderCreateService	createService;
+	protected InventorItemListService	listService;
 
 	@Autowired
-	protected AuthenticatedProviderUpdateService	updateService;
+	protected InventorItemShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCommand("create", this.createService);
-		super.addCommand("update", this.updateService);
+		super.addCommand("list", this.listService);
+		super.addCommand("show", this.showService);
 	}
 
 }
