@@ -20,9 +20,6 @@ import org.springframework.stereotype.Service;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.entities.UserAccount;
-import acme.framework.entities.UserAccountStatus;
-import acme.framework.roles.Administrator;
-import acme.framework.roles.Anonymous;
 import acme.framework.roles.Any;
 import acme.framework.roles.UserRole;
 import acme.framework.services.AbstractShowService;
@@ -80,17 +77,6 @@ public class AnyUserAccountShowService implements AbstractShowService<Any, UserA
 
 		model.setAttribute("roleList", buffer.toString());
 
-		if (entity.isEnabled()) {
-			model.setAttribute("status", UserAccountStatus.ENABLED);
-		} else {
-			model.setAttribute("status", UserAccountStatus.DISABLED);
-		}
-
-		if (entity.hasRole(Administrator.class) || entity.hasRole(Anonymous.class)) {
-			model.setAttribute("canUpdate", false);
-		} else {
-			model.setAttribute("canUpdate", true);
-		}
 	}
 	
 }
