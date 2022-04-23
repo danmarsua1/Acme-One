@@ -40,6 +40,7 @@ master.menu.administrator.shut-down = Shut down
 master.menu.inventor = Inventor
 master.menu.inventor.items = Items
 master.menu.inventor.toolkits = Toolkits
+master.menu.inventor.patronages = Patronages
 
 # master.menu.provider ########################################################
 
