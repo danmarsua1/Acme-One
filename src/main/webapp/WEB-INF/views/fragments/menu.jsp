@@ -10,7 +10,7 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java" import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer"%>
+<%@page language="java" import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer,acme.framework.roles.Administrator"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
@@ -31,6 +31,8 @@
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/administrator-dashboard/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			

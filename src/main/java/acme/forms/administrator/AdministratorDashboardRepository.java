@@ -14,32 +14,32 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	Integer totalNumberOfComponents();
 
 	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
-	Integer averageRetailPriceOfComponents();
+	Double averageRetailPriceOfComponents();
 
 	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
-	Integer deviationRetailPriceOfComponents();
+	Double deviationRetailPriceOfComponents();
 	
 	@Query("select min(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
-	Integer minimumRetailPriceOfComponents();
+	Double minimumRetailPriceOfComponents();
 
 	@Query("select max(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
-	Integer maximumRetailPriceOfComponents();
+	Double maximumRetailPriceOfComponents();
 	
 	// Manage TOOLS
 	@Query("select count(i) from Item i where i.type = 'TOOL'")
 	Integer totalNumberOfTools();
 	
 	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
-	Integer averageRetailPriceOfTools();
+	Double averageRetailPriceOfTools();
 
 	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
-	Integer deviationRetailPriceOfTools();
+	Double deviationRetailPriceOfTools();
 
 	@Query("select min(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
-	Integer minimumRetailPriceOfTools();
+	Double minimumRetailPriceOfTools();
 	
 	@Query("select max(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
-	Integer maximumRetailPriceOfTools();
+	Double maximumRetailPriceOfTools();
 	
 	// Manage TOTALS
 	@Query("select count(p) from Patronage p where p.status = 'PROPOSED'")
