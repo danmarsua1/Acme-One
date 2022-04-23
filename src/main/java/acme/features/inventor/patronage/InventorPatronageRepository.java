@@ -1,5 +1,5 @@
 /*
- * InventorItemRepository.java
+ * InventorPatronageRepository.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,32 +10,27 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.inventor.item;
+package acme.features.inventor.patronage;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.Item;
+import acme.entities.patronage.Patronage;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface InventorItemRepository extends AbstractRepository {
+public interface InventorPatronageRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
 
-	@Query("select i from Item i where i.inventor.id = :id")
-	Collection<Item> findManyItemsByInventor(int id);
+	@Query("select i from Patronage i where i.inventor.id = :id")
+	Collection<Patronage> findManyPatronagesByInventor(int id);
 	
-	@Query("select i from Item i where i.id = :id")
-	Item findOneItemById(int id);
-
-	@Query("select i from Toolkit t, Quantity q, Item i where t.id = q.toolkit.id and q.item.id = i.id and t.id = :toolkitId and i.inventor.id = :inventorId")
-	Collection<Item> findManyItemsByToolkitIdAndInventorId(int toolkitId, int inventorId);
+	@Query("select i from Patronage i where i.id = :id")
+	Patronage findOnePatronageById(int id);
 	
-	
-
 }

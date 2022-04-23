@@ -1,5 +1,5 @@
 /*
- * InventorItemListService.java
+ * InventorToolkitListService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,31 +10,31 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.inventor.item;
+package acme.features.inventor.toolkit;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Item;
+import acme.entities.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorItemListService implements AbstractListService<Inventor, Item> {
+public class InventorToolkitListService implements AbstractListService<Inventor, Toolkit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorItemRepository repository;
+	protected InventorToolkitRepository repository;
 
 	// AbstractCreateService<Authenticated, Inventor> ---------------------------
 
 	@Override
-	public boolean authorise(final Request<Item> request) {
+	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
 		
 		boolean result;
@@ -45,30 +45,23 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 	}
 
 	@Override
-	public Collection<Item> findMany(Request<Item> request) {
+	public Collection<Toolkit> findMany(Request<Toolkit> request) {
 		assert request != null;
 		
-		Collection<Item> result;
-		Integer masterId;
-		int inventorId = request.getPrincipal().getActiveRoleId();
+		Collection<Toolkit> result;
 		
-		if(request.getModel().hasAttribute("masterId")){
-			masterId = request.getModel().getInteger("masterId");
-			result = this.repository.findManyItemsByToolkitIdAndInventorId(masterId,inventorId);
-		}else {
-			result = this.repository.findManyItemsByInventor(inventorId);
-		}
+		result = this.repository.findManyToolkitsByInventor(request.getPrincipal().getActiveRoleId());
 		
 		return result;
 	}
 	
 	@Override
-	public void unbind(final Request<Item> request, final Item entity, final Model model) {
+	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "description");
+		request.unbind(entity, model, "description", "assemblyNotes", "publish");
 	}
 
 }
