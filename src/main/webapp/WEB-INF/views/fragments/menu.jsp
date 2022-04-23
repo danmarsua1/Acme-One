@@ -10,7 +10,7 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java" import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer"%>
+<%@page language="java" import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer,acme.roles.Inventor"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
@@ -38,14 +38,10 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
-			<acme:menu-suboption code="master.menu.any.user-accounts" action="/any/user-account/list"/>
-			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
-		</acme:menu-option>
-		
 		<sec:authorize access="hasRole('Inventor')">
 			<acme:menu-option code="master.menu.inventor">
 				<acme:menu-suboption code="master.menu.inventor.items" action="/inventor/item/list"/>
+				<acme:menu-suboption code="master.menu.inventor.toolkits" action="/inventor/toolkit/list"/>
 			</acme:menu-option>
 		</sec:authorize>
 

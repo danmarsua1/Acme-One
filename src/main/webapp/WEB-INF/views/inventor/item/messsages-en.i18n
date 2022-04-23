@@ -16,6 +16,5 @@ inventor.item.form.label.type = Type
 inventor.item.form.label.name = Name
 inventor.item.form.label.description = Description
 inventor.item.form.label.technology = Technology
-inventor.item.form.label.retailPrice.amount = Amount
-inventor.item.form.label.retailPrice.currency = Currency
+inventor.item.form.label.retailPrice = Retail price
 inventor.item.form.label.link = Link
