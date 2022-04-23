@@ -42,6 +42,7 @@
 			<acme:menu-option code="master.menu.inventor">
 				<acme:menu-suboption code="master.menu.inventor.items" action="/inventor/item/list"/>
 				<acme:menu-suboption code="master.menu.inventor.toolkits" action="/inventor/toolkit/list"/>
+				<acme:menu-suboption code="master.menu.inventor.patronages" action="/inventor/patronage/list"/>
 			</acme:menu-option>
 		</sec:authorize>
 

@@ -33,8 +33,7 @@ public class InventorPatronageController extends AbstractController<Inventor, Pa
 	protected InventorPatronageShowService	showService;
 
 	// Constructors -----------------------------------------------------------
-
-
+	
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list", this.listService);

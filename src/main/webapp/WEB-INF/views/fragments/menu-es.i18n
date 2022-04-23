@@ -40,6 +40,7 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.inventor = Inventor
 master.menu.inventor.items = Items
 master.menu.inventor.toolkit = Kit de herramientas
+master.menu.inventor.patronages = Patrocinios
 
 # master.menu.provider ########################################################
 
