@@ -30,6 +30,7 @@ master.menu.anonymous.jose-favourite-link = 49123130Y: Lobato Troncoso, Jose Man
 
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.configuration=Configuracion
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)

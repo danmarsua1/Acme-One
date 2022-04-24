@@ -30,6 +30,7 @@ master.menu.anonymous.jose-favourite-link = 49123130Y: Lobato Troncoso, Jose Man
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
+master.menu.administrator.configuration=Configuration
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
