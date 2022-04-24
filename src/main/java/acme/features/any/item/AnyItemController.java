@@ -24,15 +24,15 @@ import acme.framework.roles.Any;
 
 @Controller
 @RequestMapping("/any/item/")
-public class ItemController extends AbstractController<Any, Item> {
+public class AnyItemController extends AbstractController<Any, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ItemListService	listService;
+	protected AnyItemListService	listService;
 	
 	@Autowired
-	protected ItemShowService	showService;
+	protected AnyItemShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 

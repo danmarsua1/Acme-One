@@ -12,6 +12,7 @@
 
 package acme.features.any.item;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -21,15 +22,16 @@ import acme.entities.Item;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface ItemRepository extends AbstractRepository {
+public interface AnyItemRepository extends AbstractRepository {
 
 	@Query("select i from Item i where i.id = :id")
 	Item findOneItemById(int id);
 	
-	@Query("select i from Item i where i.type = 'Component'")
-	List<Item> findAllComponents();
+	@Query("select i from Item i")
+	List<Item> findAllItems();
+
+	@Query("select i from Toolkit t, Quantity q, Item i where t.id = q.toolkit.id and q.item.id = i.id and t.id = :id")
+	Collection<Item> findManyItemsByToolkitId(int id);
 	
-//	@Query("select c from Item i where i.type = Tool")
-//	List<Item> findAllTools();
 	
 }

@@ -24,12 +24,12 @@ import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class ItemListService implements AbstractListService<Any, Item> {
+public class AnyItemListService implements AbstractListService<Any, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ItemRepository repository;
+	protected AnyItemRepository repository;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -43,8 +43,14 @@ public class ItemListService implements AbstractListService<Any, Item> {
 		assert request!=null;
 		
 		Collection<Item> result;
+		Integer masterId;
 		
-		result = this.repository.findAllComponents();
+		if(request.getModel().hasAttribute("masterId")){
+			masterId = request.getModel().getInteger("masterId");
+			result = this.repository.findManyItemsByToolkitId(masterId);
+		}else {
+			result = this.repository.findAllItems();
+		}
 		
 		return result;
 	}
@@ -55,7 +61,7 @@ public class ItemListService implements AbstractListService<Any, Item> {
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "creationMoment","title","author","body","email");
+		request.unbind(entity, model, "name","type","description");
 	}
 
 

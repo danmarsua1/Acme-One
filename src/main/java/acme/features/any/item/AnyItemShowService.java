@@ -22,12 +22,12 @@ import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class ItemShowService implements AbstractShowService<Any, Item> {
+public class AnyItemShowService implements AbstractShowService<Any, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ItemRepository repository;
+	protected AnyItemRepository repository;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -55,7 +55,7 @@ public class ItemShowService implements AbstractShowService<Any, Item> {
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "creationMoment","title","author","body","email");
+		request.unbind(entity, model, "code", "type", "name", "description", "technology" , "retailPrice", "link");
 		
 	}
 
