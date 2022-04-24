@@ -35,6 +35,13 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 
+# master.menu.inventor ########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.items = Items
+master.menu.inventor.toolkit = Kit de herramientas
+master.menu.inventor.patronages = Patrocinios
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
@@ -45,6 +52,11 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.patron ##########################################################
+
+master.menu.patron = Patron
+master.menu.patron.dashboard = Panel de indicadores
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -53,3 +65,11 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+
+# master.menu.any #######################################################
+
+master.menu.any = Cualquiera
+master.menu.any.toolkits = Kits de herramientas 
+master.menu.any.item = Ítems
+master.menu.any.favourite-link = Enlace favorito
+master.menu.any.user-account = Cuentas de usuario
