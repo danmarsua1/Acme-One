@@ -45,7 +45,7 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 		final Object totalPrice = price[0];
 		model.setAttribute("totalPrice", totalPrice);
 		
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "publish", "link");
 		
 	}
 
