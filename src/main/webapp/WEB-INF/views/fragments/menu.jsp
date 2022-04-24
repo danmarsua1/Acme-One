@@ -61,6 +61,12 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down"
 				action="/administrator/shut-down" />
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.any.user-accounts" action="/any/user-account/list"/>
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
+			<acme:menu-suboption code="master.menu.any.item" action="/any/item/list"/>
+		</acme:menu-option>
 
 		<sec:authorize access="hasRole('Inventor')">
 			<acme:menu-option code="master.menu.inventor">
