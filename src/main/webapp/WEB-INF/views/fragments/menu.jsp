@@ -51,6 +51,8 @@
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.administrator.dashboard"
 				action="/administrator/administrator-dashboard/show" />
+			<acme:menu-suboption code="master.menu.administrator.configuration"
+				action="/administrator/configuration/show" />
 			<acme:menu-separator />
 			<acme:menu-suboption
 				code="master.menu.administrator.populate-initial"
