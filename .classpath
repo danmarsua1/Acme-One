@@ -40,7 +40,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
-	</classpathentry>
+	</classpathentry>	
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/Acme-Framework-22.3"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
