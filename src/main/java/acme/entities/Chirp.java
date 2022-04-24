@@ -17,7 +17,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -56,7 +56,7 @@ public class Chirp extends AbstractEntity {
 	@Length(max = 255)
 	protected String				body;
 
-	@Transient
+	@Email
 	protected String				email;
 
 	// Derived attributes -----------------------------------------------------
