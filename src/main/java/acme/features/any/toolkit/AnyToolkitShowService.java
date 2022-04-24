@@ -40,11 +40,10 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 		assert entity != null;
 		assert model != null;
 		
-		/*int id;
-		id = request.getModel().getInteger("id");
-		Money prices;
-		prices = this.repository.toolkitPrice(id);
-		model.setAttribute("prices", prices);*/
+		final int toolkitId = request.getModel().getInteger("id");
+		final Object[] price = this.repository.getToolkitPrice(toolkitId);
+		final Object totalPrice = price[0];
+		model.setAttribute("totalPrice", totalPrice);
 		
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
 		
