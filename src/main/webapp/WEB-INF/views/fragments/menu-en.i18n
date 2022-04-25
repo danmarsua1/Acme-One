@@ -42,7 +42,7 @@ master.menu.inventor = Inventor
 master.menu.inventor.items = Items
 master.menu.inventor.toolkits = Toolkits
 master.menu.inventor.patronages = Patronages
-master.menu.inventor.patronageReport = Patronage reports
+master.menu.inventor.patronage-reports = Patronage reports
 
 # master.menu.provider ########################################################
 
@@ -59,6 +59,7 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.patron = Patron
 master.menu.patron.patronages = Patronages
 master.menu.patron.dashboard = Dashboard
+master.menu.patron.patronage-reports = Patronage Report
 
 # master.menu.user-account ####################################################
 

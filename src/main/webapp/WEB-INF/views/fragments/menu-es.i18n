@@ -42,7 +42,7 @@ master.menu.inventor = Inventor
 master.menu.inventor.items = Items
 master.menu.inventor.toolkit = Kit de herramientas
 master.menu.inventor.patronages = Patrocinios
-master.menu.inventor.patronageReport = Reportes de los patrocinios
+master.menu.inventor.patronage-reports = Reportes de los patrocinios
 
 # master.menu.provider ########################################################
 
@@ -59,6 +59,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.patron = Patrón
 master.menu.patron.patronages = Patrocinios
 master.menu.patron.dashboard = Panel de indicadores
+master.menu.patron.patronage-reports = Informe de patrocinios
 
 # master.menu.user-account ####################################################
 
