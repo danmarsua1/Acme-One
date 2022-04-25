@@ -69,6 +69,7 @@
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.any.item" action="/any/item/list"/>
 			<acme:menu-suboption code="master.menu.any.chirp" action="/any/chirp/list"/>
+			<acme:menu-suboption code="master.menu.any.configuration" action="/any/configuration/show"/>
 		</acme:menu-option>
 
 		<sec:authorize access="hasRole('Inventor')">
