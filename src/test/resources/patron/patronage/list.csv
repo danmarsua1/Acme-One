@@ -1,0 +1,4 @@
+recordIndex,status,code,legalStuff,budget,creationMoment,initDate,finishDate,linkPatronage,company,statement,linkInventor
+0,ACCEPTED,AAA-000-A,legalStuff_0,EUR 10.00,2021/01/01 00:00,2021/12/13 15:51,2022/04/22 16:00,https://www.linkP.com/,Company_1,statement1,https://www.linkI.com/
+1,PROPOSED,PPP-000-P,legalStuff_1,GPB 10.00,2020/01/01 00:00,2020/12/18 15:51,2022/06/22 16:00,https://www.linkP.com/,Company_1,statement1,https://www.linkI.com/
+2,DENIED,DDD-000-D,legalStuff_2,USD 10.00,2020/02/01 00:00,2020/12/18 15:51,2022/06/22 16:00,https://www.linkP.com/,Company_1,statement1,https://www.linkI.com/
