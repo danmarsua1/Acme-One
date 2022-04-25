@@ -10,84 +10,84 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 
 
 	// Manage COMPONENTS
-	@Query("select count(i) from Item i where i.type LIKE 'COMPONENT'")
+	@Query("select count(i) from Item i where i.type = 'COMPONENT'")
 	Integer totalNumberOfComponents();
 
-	@Query("select avg(i.retailPrice.quantity) from Item i where i.type LIKE 'COMPONENT' group by i.retailPrice.technology, i.retailPrice.currency")
-	Integer averageRetailPriceOfComponents();
+	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
+	Double averageRetailPriceOfComponents();
 
-	@Query("select stdev(i.retailPrice.quantity) from Item i where i.type LIKE 'COMPONENT' group by i.retailPrice.technology, i.retailPrice.currency")
-	Integer deviationRetailPriceOfComponents();
+	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
+	Double deviationRetailPriceOfComponents();
 	
-	@Query("select min(i.retailPrice.quantity) from Item i where i.type LIKE 'COMPONENT' group by i.retailPrice.technology, i.retailPrice.currency")
-	Integer minimumRetailPriceOfComponents();
+	@Query("select min(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
+	Double minimumRetailPriceOfComponents();
 
-	@Query("select max(i.retailPrice.quantity) from Item i where i.type LIKE 'COMPONENT' group by i.retailPrice.technology, i.retailPrice.currency")
-	Integer maximumRetailPriceOfComponents();
+	@Query("select max(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
+	Double maximumRetailPriceOfComponents();
 	
 	// Manage TOOLS
-	@Query("select count(i) from Item i where i.type LIKE 'TOOL'")
+	@Query("select count(i) from Item i where i.type = 'TOOL'")
 	Integer totalNumberOfTools();
 	
-	@Query("select avg(i.retailPrice.quantity) from Item i where i.type LIKE 'TOOL' group by i.retailPrice.currency")
-	Integer averageRetailPriceOfTools();
+	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
+	Double averageRetailPriceOfTools();
 
-	@Query("select stdev(i.retailPrice.quantity) from Item i where i.type LIKE 'TOOL' group by i.retailPrice.currency")
-	Integer deviationRetailPriceOfTools();
+	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
+	Double deviationRetailPriceOfTools();
 
-	@Query("select min(i.retailPrice.quantity) from Item i where i.type LIKE 'TOOL' group by i.retailPrice.currency")
-	Integer minimumRetailPriceOfTools();
+	@Query("select min(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
+	Double minimumRetailPriceOfTools();
 	
-	@Query("select max(i.retailPrice.quantity) from Item i where i.type LIKE 'TOOL' group by i.retailPrice.currency")
-	Integer maximumRetailPriceOfTools();
+	@Query("select max(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
+	Double maximumRetailPriceOfTools();
 	
 	// Manage TOTALS
-	@Query("select count(p) from Patronage p where p.status LIKE '%PROPOSED%'")
+	@Query("select count(p) from Patronage p where p.status = 'PROPOSED'")
 	Integer totalNumberOfProposedPatronages();
 
-	@Query("select count(p) from Patronage p where p.status LIKE '%ACCEPTED%'")
+	@Query("select count(p) from Patronage p where p.status = 'ACCEPTED'")
 	Integer totalNumberOfAcceptedPatronages();
 
-	@Query("select count(p) from Patronage p where p.status LIKE '%DENIED%'")
+	@Query("select count(p) from Patronage p where p.status = 'DENIED'")
 	Integer totalNumberOfDeniedPatronages();
 
 	// Manage PROPOSED
-	@Query("select avg(p.budget.quantity) from Patronage p where p.status LIKE '%PROPOSED%' group by p.budget.currency")
+	@Query("select avg(p.budget.amount) from Patronage p where p.status = 'PROPOSED' group by p.budget.currency")
 	Double averageBudgetOfProposedPatronages();
 
-	@Query("select stdev(p.budget.quantity) from Patronage p where p.status LIKE '%PROPOSED%' group by p.budget.currency")
+	@Query("select stddev(p.budget.amount) from Patronage p where p.status = 'PROPOSED' group by p.budget.currency")
 	Double deviationBudgetOfProposedPatronages();
 
-	@Query("select min(p.budget.quantity) from Patronage p where p.status LIKE '%PROPOSED%' group by p.budget.currency")
+	@Query("select min(p.budget.amount) from Patronage p where p.status = 'PROPOSED' group by p.budget.currency")
 	Double minimumBudgetOfProposedPatronages();
 
-	@Query("select max(p.budget.quantity) from Patronage p where p.status LIKE '%PROPOSED%' group by p.budget.currency")
+	@Query("select max(p.budget.amount) from Patronage p where p.status = 'PROPOSED' group by p.budget.currency")
 	Double maximumBudgetOfProposedPatronages();
 
 	// Manage ACCEPTED
-	@Query("select avg(p.budget.quantity) from Patronage p where p.status LIKE '%ACCEPTED%' group by p.budget.currency")
+	@Query("select avg(p.budget.amount) from Patronage p where p.status = 'ACCEPTED' group by p.budget.currency")
 	Double averageBudgetOfAcceptedPatronages();
 
-	@Query("select stdev(p.budget.quantity) from Patronage p where p.status LIKE '%ACCEPTED%' group by p.budget.currency")
+	@Query("select stddev(p.budget.amount) from Patronage p where p.status = 'ACCEPTED' group by p.budget.currency")
 	Double deviationBudgetOfAcceptedPatronages();
 
-	@Query("select min(p.budget.quantity) from Patronage p where p.status LIKE '%ACCEPTED%' group by p.budget.currency")
+	@Query("select min(p.budget.amount) from Patronage p where p.status = 'ACCEPTED' group by p.budget.currency")
 	Double minimumBudgetOfAcceptedPatronages();
 
-	@Query("select max(p.budget.quantity) from Patronage p where p.status LIKE '%ACCEPTED%' group by p.budget.currency")
+	@Query("select max(p.budget.amount) from Patronage p where p.status = 'ACCEPTED' group by p.budget.currency")
 	Double maximumBudgetOfAcceptedPatronages();
 
 	// Manage DENIED
-	@Query("select avg(p.budget.quantity) from Patronage p where p.status LIKE '%DENIED%' group by p.budget.currency")
+	@Query("select avg(p.budget.amount) from Patronage p where p.status = 'DENIED' group by p.budget.currency")
 	Double averageBudgetOfDeniedPatronages();
 
-	@Query("select stdev(p.budget.quantity) from Patronage p where p.status LIKE '%DENIED%' group by p.budget.currency")
+	@Query("select stddev(p.budget.amount) from Patronage p where p.status = 'DENIED' group by p.budget.currency")
 	Double deviationBudgetOfDeniedPatronages();
 
-	@Query("select min(p.budget.quantity) from Patronage p where p.status LIKE '%DENIED%' group by p.budget.currency")
+	@Query("select min(p.budget.amount) from Patronage p where p.status = 'DENIED' group by p.budget.currency")
 	Double minimumBudgetOfDeniedPatronages();
 
-	@Query("select max(p.budget.quantity) from Patronage p where p.status LIKE '%DENIED%' group by p.budget.currency")
+	@Query("select max(p.budget.amount) from Patronage p where p.status = 'DENIED' group by p.budget.currency")
 	Double maximumBudgetOfDeniedPatronages();
 	
 }

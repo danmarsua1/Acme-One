@@ -30,10 +30,19 @@ master.menu.anonymous.jose-favourite-link = 49123130Y: Lobato Troncoso, Jose Man
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
+master.menu.administrator.configuration=Configuration
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+
+# master.menu.inventor ########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.items = Items
+master.menu.inventor.toolkits = Toolkits
+master.menu.inventor.patronages = Patronages
+master.menu.inventor.patronage-reports = Patronage reports
 
 # master.menu.provider ########################################################
 
@@ -45,6 +54,13 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.patron ##########################################################
+
+master.menu.patron = Patron
+master.menu.patron.patronages = Patronages
+master.menu.patron.dashboard = Dashboard
+master.menu.patron.patronage-reports = Patronage Report
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -53,3 +69,13 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+# master.menu.any ####################################################
+
+master.menu.any = Any
+master.menu.any.user-accounts = User Accounts
+master.menu.any.toolkits = Toolkits 
+master.menu.any.item = Items
+master.menu.any.chirp = Chirp
+master.menu.any.favourite-link = Favourite link
+master.menu.any.configuration = Configuration

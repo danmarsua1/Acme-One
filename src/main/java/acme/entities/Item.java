@@ -1,5 +1,5 @@
 /*
- * Consumer.java
+ * Item.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
