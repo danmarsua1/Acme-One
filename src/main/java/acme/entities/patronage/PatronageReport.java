@@ -33,7 +33,6 @@ public class PatronageReport extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 	
 	@Pattern(regexp = "^[0-9]{4}$")
-    @Transient
     @NotBlank
 	protected String sequenceNumber;
 

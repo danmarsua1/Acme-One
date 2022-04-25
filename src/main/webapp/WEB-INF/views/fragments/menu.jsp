@@ -79,6 +79,8 @@
 					action="/inventor/toolkit/list" />
 				<acme:menu-suboption code="master.menu.inventor.patronages"
 					action="/inventor/patronage/list" />
+				<acme:menu-suboption code="master.menu.inventor.patronageReport"
+					action="/inventor/patronage-report/list" />
 			</acme:menu-option>
 		</sec:authorize>
 
