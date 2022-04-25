@@ -42,6 +42,7 @@ master.menu.inventor = Inventor
 master.menu.inventor.items = Items
 master.menu.inventor.toolkit = Kit de herramientas
 master.menu.inventor.patronages = Patrocinios
+master.menu.inventor.patronageReport = Reportes de los patrocinios
 
 # master.menu.provider ########################################################
 
