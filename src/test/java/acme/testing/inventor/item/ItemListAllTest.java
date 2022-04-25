@@ -20,7 +20,8 @@ public class ItemListAllTest extends TestHarness{
         super.sortListing(0, "desc");
 
         super.checkColumnHasValue(recordIndex, 0, name);
-        super.checkColumnHasValue(recordIndex, 1, description);
+        super.checkColumnHasValue(recordIndex, 1, type);
+        super.checkColumnHasValue(recordIndex, 2, description);
 
         super.clickOnListingRecord(recordIndex);
         super.checkFormExists();
