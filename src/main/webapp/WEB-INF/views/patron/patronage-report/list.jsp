@@ -16,7 +16,6 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="inventor.item.list.label.name" path="name" width="20%"/>
-	<acme:list-column code="inventor.item.list.label.type" path="type" width="20%"/>
-	<acme:list-column code="inventor.item.list.label.description" path="description" width="60%"/>
+	<acme:list-column code="patron.patronage-report.list.label.sequenceNumber" path="sequenceNumber" width="60%"/>
+	<acme:list-column code="patron.patronage-report.list.label.creationMoment" path="creationMoment" width="40%"/>
 </acme:list>
