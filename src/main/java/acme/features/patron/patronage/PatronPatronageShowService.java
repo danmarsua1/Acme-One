@@ -50,11 +50,20 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 		assert entity != null;
 		assert model != null;
 		
+<<<<<<< HEAD
 		UserAccount inventor;
+=======
+		int patronId;
+>>>>>>> branch 'master' of https://github.com/jmanuellt8/Acme-One.git
 		
 		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationMoment", "initDate", "finishDate", "link", "patron", "inventor");
     
+<<<<<<< HEAD
 		inventor = entity.getInventor().getUserAccount();
 		model.setAttribute("inventorId", inventor.getId());
+=======
+		patronId = entity.getPatron().getUserAccount().getId();
+		model.setAttribute("patronId", patronId);	
+>>>>>>> branch 'master' of https://github.com/jmanuellt8/Acme-One.git
 	}
 }
