@@ -1,0 +1,2 @@
+timestamp,test-class,test-method,time,description,result
+"2022-04-25 21:57:05.163","acme.testing.patron.patronage.PatronPatronageListTest","positiveTest",10631,""[1] recordIndex=0, status=PROPOSED, code=COD-001-A, legalStuff=Legal, budget=EUR 10.00, creationMoment=2020/01/01 10:00, initDate=2020/02/01 11:00, finishDate=2020/03/01 12:00, link=https://www.link1.com"","OK"

@@ -1,4 +1,4 @@
-package acme.features.any;
+package acme.features.authenticated;
 
 import javax.annotation.PostConstruct;
 
@@ -7,12 +7,12 @@ import org.springframework.stereotype.Controller;
 
 import acme.entities.Configuration;
 import acme.framework.controllers.AbstractController;
-import acme.framework.roles.Any;
+import acme.framework.roles.Authenticated;
 
 @Controller
-public class AnyConfigurationController extends AbstractController<Any,Configuration>{
+public class AuthenticatedConfigurationController extends AbstractController<Authenticated,Configuration>{
 	@Autowired
-	protected AnyConfigurationShowService showService;
+	protected AuthenticatedConfigurationShowService showService;
 	
 	@PostConstruct
 	protected void initialise(){

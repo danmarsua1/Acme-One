@@ -7,13 +7,13 @@
 <table class="table table-sm">
 	<tr>
 		<th scope="row"><acme:message
-				code="any.configuration.show.label.currency" />
+				code="authenticated.configuration.show.label.currency" />
 		</th>
 		<td><acme:print value="${currency}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="any.configuration.show.label.acceptedCurrencies" />
+				code="authenticated.configuration.show.label.acceptedCurrencies" />
 		</th>
 		<td><acme:print value="${acceptedCurrencies}" /></td>
 	</tr>

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.entities.Announcement;
 import acme.framework.controllers.AbstractController;
-import acme.framework.roles.authenticated;
+import acme.framework.roles.Authenticated;
 
 @Controller
 @RequestMapping("/authenticated/announcement/")

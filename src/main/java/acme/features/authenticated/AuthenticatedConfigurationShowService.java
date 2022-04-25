@@ -1,4 +1,4 @@
-package acme.features.any;
+package acme.features.authenticated;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 import acme.entities.Configuration;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Any;
+import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnyConfigurationShowService implements AbstractShowService<Any,Configuration>{
+public class AuthenticatedConfigurationShowService implements AbstractShowService<Authenticated,Configuration>{
 	@Autowired
-	protected AnyConfigurationRepository repository;
+	protected AuthenticatedConfigurationRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Configuration>request) {

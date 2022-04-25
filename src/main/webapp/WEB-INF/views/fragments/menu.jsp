@@ -12,7 +12,7 @@
 
 
 <%@page language="java"
-	import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer,acme.framework.roles.Administrator,acme.roles.Patron"%>
+	import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer,acme.framework.roles.Administrator,acme.roles.Patron,acme.framework.roles.Authenticated"%>
 
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -69,7 +69,11 @@
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.any.item" action="/any/item/list"/>
 			<acme:menu-suboption code="master.menu.any.chirp" action="/any/chirp/list"/>
-			<acme:menu-suboption code="master.menu.any.configuration" action="/any/configuration/show"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.authenticated.announcement" action="/authenticated/announcement/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.configuration" action="/authenticated/configuration/show"/>
 		</acme:menu-option>
 
 		<sec:authorize access="hasRole('Inventor')">
