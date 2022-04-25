@@ -69,6 +69,7 @@
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.any.item" action="/any/item/list"/>
 			<acme:menu-suboption code="master.menu.any.chirp" action="/any/chirp/list"/>
+			<acme:menu-suboption code="master.menu.any.configuration" action="/any/configuration/show"/>
 		</acme:menu-option>
 
 		<sec:authorize access="hasRole('Inventor')">
@@ -88,6 +89,8 @@
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.dashboard"
 					action="/patron/patron-dashboard/show" />
+			<acme:menu-suboption code="master.menu.patron.patronages"
+					action="/patron/patronage/list" />
 		</acme:menu-option>
 	
 

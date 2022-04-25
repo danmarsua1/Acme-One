@@ -45,12 +45,12 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 	}
 
 	@Override
-	public Collection<Item> findMany(Request<Item> request) {
+	public Collection<Item> findMany(final Request<Item> request) {
 		assert request != null;
 		
 		Collection<Item> result;
 		Integer masterId;
-		int inventorId = request.getPrincipal().getActiveRoleId();
+		final int inventorId = request.getPrincipal().getActiveRoleId();
 		
 		if(request.getModel().hasAttribute("masterId")){
 			masterId = request.getModel().getInteger("masterId");
@@ -68,7 +68,7 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "description");
+		request.unbind(entity, model, "name", "type", "description");
 	}
 
 }

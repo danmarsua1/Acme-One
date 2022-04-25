@@ -57,6 +57,7 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.patron ##########################################################
 
 master.menu.patron = Patron
+master.menu.patron.patronages = Patronages
 master.menu.patron.dashboard = Dashboard
 
 # master.menu.user-account ####################################################
@@ -76,3 +77,4 @@ master.menu.any.toolkits = Toolkits
 master.menu.any.item = Items
 master.menu.any.chirp = Chirp
 master.menu.any.favourite-link = Favourite link
+master.menu.any.configuration = Configuration

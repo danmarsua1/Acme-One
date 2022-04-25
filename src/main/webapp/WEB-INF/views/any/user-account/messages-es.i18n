@@ -4,5 +4,5 @@ any.user-account.list.label.role-list = Rol:
 
 any.user-account.form.label.name = Nombre:
 any.user-account.form.label.surname = Apellidos:
-any.user-account.form.label.username = Apodo:
+any.user-account.form.label.email = Correo electrónico:
 any.user-account.form.label.role-list = Rol:
