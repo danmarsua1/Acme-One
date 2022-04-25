@@ -78,4 +78,10 @@ master.menu.any.toolkits = Toolkits
 master.menu.any.item = Items
 master.menu.any.chirp = Chirp
 master.menu.any.favourite-link = Favourite link
-master.menu.any.configuration = Configuration
+
+# master.menu.authenticated ####################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.announcement = Announcements
+master.menu.authenticated.configuration = Configuration
+

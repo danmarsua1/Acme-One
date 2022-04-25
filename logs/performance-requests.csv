@@ -1,0 +1,9 @@
+timestamp,simple-path,time
+"2022-04-25 21:56:54.53","/master/welcome",3767
+"2022-04-25 21:56:54.826","/master/welcome",250
+"2022-04-25 21:56:56.646","/master/sign-in",1616
+"2022-04-25 21:56:57.909","/master/welcome",578
+"2022-04-25 21:56:59.37","/patron/patronage/list",1212
+"2022-04-25 21:57:01.582","/patron/patronage/show",562
+"2022-04-25 21:57:02.356","/master/welcome",234
+"2022-04-25 21:57:03.121","/master/welcome",593
