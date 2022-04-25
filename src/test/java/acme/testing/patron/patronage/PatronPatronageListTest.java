@@ -18,33 +18,31 @@ public class PatronPatronageListTest extends TestHarness {
 		
 		super.signIn("patron1", "patron1");
 		
-		super.clickOnMenu("Patron", "Patronage list");
+		super.clickOnMenu("Patron", "Patronages");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
 		
-		super.checkColumnHasValue(recordIndex, 0, status);
-		super.checkColumnHasValue(recordIndex, 1, code);
+		super.checkColumnHasValue(recordIndex, 0, initDate);
+		super.checkColumnHasValue(recordIndex, 1, finishDate);
 		super.checkColumnHasValue(recordIndex, 2, budget);
-		super.checkColumnHasValue(recordIndex, 3, creationMoment);
-		super.checkColumnHasValue(recordIndex, 4, initDate);
-		super.checkColumnHasValue(recordIndex, 5, finishDate);
+		super.checkColumnHasValue(recordIndex, 3, status);
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("status", status);
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("legalStuff", legalStuff);
 		super.checkInputBoxHasValue("budget", budget);
 		super.checkInputBoxHasValue("creationMoment", creationMoment);
 		super.checkInputBoxHasValue("initDate", initDate);
+		super.checkInputBoxHasValue("status", status);
 		super.checkInputBoxHasValue("finishDate", finishDate);
 		super.checkInputBoxHasValue("link", link);
 		
-		super.clickOnButton("Inventor");
-		super.checkFormExists();
-		super.checkInputBoxHasValue("identity.name", name);
-		super.checkInputBoxHasValue("identity.surname", surname);
-		super.checkInputBoxHasValue("identity.email", email);
+//		super.clickOnButton("Inventor");
+//		super.checkFormExists();
+//		super.checkInputBoxHasValue("identity.name", name);
+//		super.checkInputBoxHasValue("identity.surname", surname);
+//		super.checkInputBoxHasValue("identity.email", email);
 		
 		super.signOut();
 	}

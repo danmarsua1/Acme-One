@@ -21,5 +21,5 @@ patron.patronage.form.label.budget = Budget
 patron.patronage.form.label.status = Status
 patron.patronage.form.label.legalStuff = Legal stuff
 patron.patronage.form.label.link = Link
-patron.patronage.form.label.showPatron = View patron
+patron.patronage.form.label.showInventor = View inventor
 
