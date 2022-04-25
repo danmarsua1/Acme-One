@@ -8,11 +8,5 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-inventor.patronage-report.list.label.sequenceNumber = Sequence Number
-inventor.patronage-report.list.label.creationMoment = Creation Moment
-
-inventor.patronage-report.form.label.sequenceNumber = Sequence Number
-inventor.patronage-report.form.label.creationMoment = Creation Moment
-inventor.patronage-report.form.label.memorandum  = Memorandum 
-inventor.patronage-report.form.label.link = Link
-inventor.patronage-report.form.label.showInventor = View Inventor
+any.configuration.show.label.currency=Currency
+any.configuration.show.label.acceptedCurrencies= Accepted Currencies
