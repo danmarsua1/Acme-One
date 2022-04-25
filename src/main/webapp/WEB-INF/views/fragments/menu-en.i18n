@@ -57,6 +57,8 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.patron ##########################################################
 
 master.menu.patron = Patron
+master.menu.patron.patronages = Patronages
+master.menu.patron.patronage-reports = Patronage reports
 master.menu.patron.dashboard = Dashboard
 
 # master.menu.user-account ####################################################
