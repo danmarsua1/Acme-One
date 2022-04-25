@@ -75,13 +75,13 @@
 		<sec:authorize access="hasRole('Inventor')">
 			<acme:menu-option code="master.menu.inventor">
 				<acme:menu-suboption code="master.menu.inventor.items"
-					action="/inventor/item/list"/>
+					action="/inventor/item/list" />
 				<acme:menu-suboption code="master.menu.inventor.toolkits"
-					action="/inventor/toolkit/list"/>
+					action="/inventor/toolkit/list" />
 				<acme:menu-suboption code="master.menu.inventor.patronages"
-					action="/inventor/patronage/list"/>
-				<acme:menu-suboption code="master.menu.inventor.patronage-reports" 
-			        action="/inventor/patronage-report/list"/>
+					action="/inventor/patronage/list" />
+				<acme:menu-suboption code="master.menu.inventor.patronageReport"
+					action="/inventor/patronage-report/list" />
 			</acme:menu-option>
 		</sec:authorize>
 
