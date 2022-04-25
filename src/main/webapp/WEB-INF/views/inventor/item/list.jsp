@@ -17,5 +17,6 @@
 
 <acme:list>
 	<acme:list-column code="inventor.item.list.label.name" path="name" width="20%"/>
-	<acme:list-column code="inventor.item.list.label.description" path="description" width="80%"/>
+	<acme:list-column code="inventor.item.list.label.type" path="type" width="20%"/>
+	<acme:list-column code="inventor.item.list.label.description" path="description" width="60%"/>
 </acme:list>
