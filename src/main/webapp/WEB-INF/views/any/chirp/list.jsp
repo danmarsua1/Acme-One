@@ -23,3 +23,5 @@
 	<acme:list-column code="any.chirp.list.label.author" path="author"
 		width="20%" />
 </acme:list>
+
+<acme:button code="any.chirp.list.button.create" action="/any/chirp/create"/>
