@@ -21,8 +21,21 @@
 	<acme:input-textbox code="inventor.patronage.form.label.initDate" path="initDate"/>
 	<acme:input-textbox code="inventor.patronage.form.label.finishDate" path="finishDate"/>
 	<acme:input-textbox code="inventor.patronage.form.label.budget" path="budget"/>
+	<jstl:if test="${status!='PROPOSED'}">
 	<acme:input-textbox code="inventor.patronage.form.label.status" path="status"/>
+	</jstl:if>
+	<jstl:if test="${status=='PROPOSED'}">
+		<acme:input-select code="inventor.patronage.form.label.status" path="status">
+			<acme:input-option code="PROPOSED" value="PROPOSED" selected="true"/>
+			<acme:input-option code="ACCEPTED" value="ACCEPTED"/>
+			<acme:input-option code="DENIED" value="DENIED"/>
+		</acme:input-select>
+	</jstl:if>
 	<acme:input-textbox code="inventor.patronage.form.label.legalStuff" path="legalStuff"/>
 	<acme:input-textbox code="inventor.patronage.form.label.link" path="link"/>
 	<acme:button code="inventor.patronage.form.label.showPatron" action="/any/user-account/show?id=${patronId}"/> 
+	<jstl:if test="${command == 'show' && status == 'PROPOSED'}">
+		<acme:submit code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
+	</jstl:if>
+
 </acme:form>
