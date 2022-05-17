@@ -81,10 +81,12 @@
 				<acme:menu-suboption code="master.menu.inventor.items"
 					action="/inventor/item/list" />
 				<acme:menu-suboption code="master.menu.inventor.toolkits"
-					action="/inventor/toolkit/list" />
+				action="/inventor/toolkit/list" />
+				<acme:menu-suboption code="master.menu.inventor.toolkits.create"
+				action="/inventor/toolkit/create" />
 				<acme:menu-suboption code="master.menu.inventor.patronages"
 					action="/inventor/patronage/list" />
-				<acme:menu-suboption code="master.menu.inventor.patronageReport"
+				<acme:menu-suboption code="master.menu.inventor.patronage-reports"
 					action="/inventor/patronage-report/list" />
 			</acme:menu-option>
 		</sec:authorize>

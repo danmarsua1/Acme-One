@@ -21,15 +21,22 @@ import org.springframework.stereotype.Repository;
 import acme.entities.Toolkit;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Inventor;
 
 @Repository
 public interface InventorToolkitRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
+	
+	@Query("select i from Inventor i where i.userAccount.id = :id")
+	Inventor findOneInventorById(int id);
 
 	@Query("select distinct t from Toolkit t, Quantity q, Item i where t.id = q.toolkit.id and q.item.id = i.id and i.inventor.id = :id")
 	Collection<Toolkit> findManyToolkitsByInventor(int id);
+	
+	@Query("select t from Toolkit t")
+	Collection<Toolkit> findAllToolkits();
 	
 	@Query("select t from Toolkit t where t.id = :id")
 	Toolkit findOneToolkitById(int id);
