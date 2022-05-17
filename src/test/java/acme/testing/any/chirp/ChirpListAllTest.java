@@ -42,10 +42,10 @@ public class ChirpListAllTest extends TestHarness {
 		super.checkFormExists();
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("author", author);
-		super.checkInputBoxHasValue("creationMoment", creationMoment);
 		super.checkInputBoxHasValue("body", body);
 		super.checkInputBoxHasValue("email", email);
-
+		super.checkInputBoxHasValue("creationMoment", creationMoment);
+		
 		super.signOut();
 	}
 
