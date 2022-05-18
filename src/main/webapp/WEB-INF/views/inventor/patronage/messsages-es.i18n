@@ -18,7 +18,9 @@ inventor.patronage.form.label.creationMoment = Fecha creación
 inventor.patronage.form.label.initDate = Fecha inicio
 inventor.patronage.form.label.finishDate = Fecha fin
 inventor.patronage.form.label.budget = Presupuesto
-inventor.patronage.form.label.status = Estado
 inventor.patronage.form.label.legalStuff = Términos legales
 inventor.patronage.form.label.link = Link
 inventor.patronage.form.label.showPatron = Ver patrocinador
+inventor.patronage.form.label.status = Estado
+
+inventor.patronage.form.button.update = Actualizar
