@@ -18,8 +18,9 @@ inventor.patronage.form.label.creationMoment = Creation date
 inventor.patronage.form.label.initDate = Init date
 inventor.patronage.form.label.finishDate = Finish date
 inventor.patronage.form.label.budget = Budget
-inventor.patronage.form.label.status = Status
 inventor.patronage.form.label.legalStuff = Legal stuff
 inventor.patronage.form.label.link = Link
 inventor.patronage.form.label.showPatron = View patron
+inventor.patronage.form.label.status = Status
 
+inventor.patronage.form.button.update = Update
