@@ -22,3 +22,5 @@ patron.patronage.form.label.status = Estado
 patron.patronage.form.label.legalStuff = Términos legales
 patron.patronage.form.label.link = Link
 patron.patronage.form.label.showInventor= Ver inventor
+
+patron.patronage.form.label.createPatronageReport = Crear Reporte de patrocinio

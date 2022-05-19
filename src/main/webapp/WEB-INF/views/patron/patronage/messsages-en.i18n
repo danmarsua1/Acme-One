@@ -23,3 +23,5 @@ patron.patronage.form.label.legalStuff = Legal stuff
 patron.patronage.form.label.link = Link
 patron.patronage.form.label.showInventor = View inventor
 
+patron.patronage.form.label.createPatronageReport = Create Patronage Report
+

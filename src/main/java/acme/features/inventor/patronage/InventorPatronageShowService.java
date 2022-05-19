@@ -12,10 +12,13 @@
 
 package acme.features.inventor.patronage;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
+import acme.entities.patronage.PatronageReport;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
@@ -71,6 +74,14 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		
 		patronId = entity.getPatron().getUserAccount().getId();
 		model.setAttribute("patronId", patronId);
+		
+		// Detect if is any patronageReports
+		List<PatronageReport> patronageReports = (List<PatronageReport>) this.repository.patonageHasAnyPatronageReports(entity.getId());
+		if(!patronageReports.isEmpty()) {
+			model.setAttribute("hasPatronageReport", true);
+			model.setAttribute("patronageReportId", patronageReports.get(0).getId());
+		}
+		
 	}
 	
 }
