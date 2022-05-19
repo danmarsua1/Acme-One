@@ -20,3 +20,8 @@ inventor.toolkit.form.label.publish = Publicado
 inventor.toolkit.form.label.link = Link
 inventor.toolkit.form.label.totalPrice = Precio total
 inventor.toolkit.form.label.listItems = Mis productos
+
+inventor.toolkit.form.button.update = Actualizar
+inventor.toolkit.form.button.delete = Borrar
+inventor.toolkit.form.button.publish = Publicar
+inventor.toolkit.form.button.create = Crear
