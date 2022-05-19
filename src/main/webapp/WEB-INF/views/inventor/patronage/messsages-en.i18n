@@ -24,3 +24,6 @@ inventor.patronage.form.label.showPatron = View patron
 inventor.patronage.form.label.status = Status
 
 inventor.patronage.form.button.update = Update
+
+inventor.patronage.form.label.createPatronageReport = Create Patronage Report
+inventor.patronage.form.label.showPatronageReport = Show Patronage Report

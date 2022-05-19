@@ -24,3 +24,6 @@ inventor.patronage.form.label.showPatron = Ver patrocinador
 inventor.patronage.form.label.status = Estado
 
 inventor.patronage.form.button.update = Actualizar
+
+inventor.patronage.form.label.createPatronageReport = Crear Report de patrocinio
+inventor.patronage.form.label.showPatronageReport = Mostrar Report de patrocinio

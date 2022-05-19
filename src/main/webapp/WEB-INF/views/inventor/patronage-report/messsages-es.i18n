@@ -16,3 +16,7 @@ inventor.patronage-report.form.label.creationMoment = Fecha creación
 inventor.patronage-report.form.label.memorandum  = Memorándum 
 inventor.patronage-report.form.label.link = Link
 inventor.patronage-report.form.label.showInventor = Ver Inventor
+
+inventor.patronage-report.button.create = Crear
+inventor.patronage-report.button.confirm = Confirmar
+inventor.patronage-report.form.text = El informe de patrocinio que cree a continuación, no se podrá actualizar ni eliminar. Por favor, confirme que se desea continuar.
