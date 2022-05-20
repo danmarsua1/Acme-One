@@ -56,39 +56,11 @@ public class ChirpShowService implements AbstractShowService<Any, Chirp> {
 		assert model!=null;
 		
 		request.unbind(entity, model, "creationMoment","title","author","body","email");
+		model.setAttribute("confirmation", false);
+		model.setAttribute("readonly", true);
+		model.setAttribute("showmoment", true);
 		
 	}
 
-	// AbstractShowService<Employer, Duty> interface ---------------------------
-
-
-//	@Override
-//	public boolean authorise(final Request<Duty> request) {
-//		assert request != null;
-//
-//		return true;
-//	}
-//
-//	@Override
-//	public Duty findOne(final Request<Duty> request) {
-//		assert request != null;
-//
-//		Duty result;
-//		int id;
-//
-//		id = request.getModel().getInteger("id");
-//		result = this.repository.findOneDutyById(id);
-//
-//		return result;
-//	}
-//	
-//	@Override
-//	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
-//		assert request != null;
-//		assert entity != null;
-//		assert model != null;
-//
-//		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");		
-//	}
 
 }
