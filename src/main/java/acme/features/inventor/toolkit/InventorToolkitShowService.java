@@ -12,10 +12,7 @@
 
 package acme.features.inventor.toolkit;
 
-import static org.mockito.ArgumentMatchers.anyObject;
-
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +20,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
