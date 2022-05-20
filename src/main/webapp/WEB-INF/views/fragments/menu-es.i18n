@@ -70,6 +70,11 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.patron = Datos del patron
+master.menu.user-account.become-patron = Hazte patron
+master.menu.user-account.inventor = Datos del inventor
+master.menu.user-account.become-inventor = Hazte inventor
+
 
 # master.menu.any #######################################################
 

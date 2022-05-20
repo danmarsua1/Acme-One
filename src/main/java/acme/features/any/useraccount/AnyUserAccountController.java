@@ -34,8 +34,6 @@ public class AnyUserAccountController extends AbstractController<Any, UserAccoun
 	@Autowired
 	protected AnyUserAccountShowService	showService;
 	
-	@Autowired
-	protected AnyUserAccountUpdateService updateService;
 
 
 
@@ -46,7 +44,7 @@ public class AnyUserAccountController extends AbstractController<Any, UserAccoun
 	protected void initialise() {
 		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
-		super.addCommand("update",this.updateService);
+
 	}
 
 }
