@@ -51,6 +51,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		request.unbind(entity, model, "code", "creationMoment", "initDate", "finishDate",
 			"budget" , "status", "legalStuff", "link");
 		
+		
 	}
 
 	@Override
@@ -68,8 +69,30 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 
 	@Override
 	public void validate(final Request<Patronage> request, final Patronage entity, final Errors errors) {
-		// TODO Auto-generated method stub
+		assert request != null;
+		assert entity != null;
+		assert errors != null;	
 		
+		
+		if(!errors.hasErrors("code")) {
+			Patronage existing;
+			
+			existing = this.repository.findOnePatronageByCode(entity.getCode());
+			errors.state(request, existing.getId()==entity.getId(), "code", "patron.patronage.form.error.duplicated");
+		}
+		
+		if(!errors.hasErrors("budget")) {
+			final String [] currencies = this.repository.findConfiguration().getAcceptedCurrencies().split(",");
+			Boolean acceptedCurrencies = false;
+			for(int i = 0; i<currencies.length;i++) {
+				if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
+					acceptedCurrencies=true;
+				}
+			}
+			
+			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
+			errors.state(request, acceptedCurrencies, "budget", "patron.patronage.form.error.non-accepted-currency");
+		}
 	}
 
 	@Override
