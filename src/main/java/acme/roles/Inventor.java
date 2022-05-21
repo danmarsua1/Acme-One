@@ -13,7 +13,6 @@
 package acme.roles;
 
 import javax.persistence.Entity;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
@@ -43,7 +42,6 @@ public class Inventor extends UserRole {
 	protected String			statement;
 
 	@URL
-	@Transient
 	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
