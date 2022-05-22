@@ -44,6 +44,10 @@ master.menu.inventor.toolkits = Listar kits de herramientas
 master.menu.inventor.toolkits.create = Crear kit de herramientas
 master.menu.inventor.patronages = Patrocinios
 master.menu.inventor.patronage-reports = Reportes de los patrocinios
+master.menu.inventor.item.tool = Ver herramientas
+master.menu.inventor.item.component = Ver componentes
+master.menu.inventor.item.create-component = Crear nuevo componente
+master.menu.inventor.item.create = Crear nueva herramienta
 
 # master.menu.provider ########################################################
 
