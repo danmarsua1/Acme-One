@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.Configuration;
 import acme.entities.patronage.Patronage;
+import acme.entities.patronage.PatronageReport;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -17,10 +18,13 @@ public interface PatronPatronageRepository extends AbstractRepository {
 
 	@Query("select patronage from Patronage patronage where patronage.patron.id = :id")
 	Collection<Patronage> findPatronagesByPatronId(int id);
+	
+	@Query("select pr from PatronageReport pr where pr.patronage.id = :patronageId")
+    Collection<PatronageReport> findManyPatronageReportsByPatronageId(int patronageId);
 
 	@Query("select patronage from Patronage patronage where patronage.code like :code")
 	Patronage findOnePatronageByCode(String code);
 	
-	@Query("select configuration from Configuration c")
+	@Query("select configuration from Configuration configuration")
 	Configuration findConfiguration();
 }
