@@ -22,4 +22,5 @@
 	<acme:input-textbox code="authenticated.announcement.form.label.flag" path="flag"/>
 	<acme:input-textbox code="authenticated.announcement.form.label.link" path="link"/>
 	
+	
 </acme:form>

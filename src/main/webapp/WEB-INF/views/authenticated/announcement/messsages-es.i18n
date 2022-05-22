@@ -17,3 +17,5 @@ authenticated.announcement.form.label.link = Link:
 authenticated.announcement.list.label.creation-moment = Momento de creación
 authenticated.announcement.list.label.body = Cuerpo
 authenticated.announcement.list.label.title = Título
+
+administrator.announcement.list.button.create = Crear anuncio
