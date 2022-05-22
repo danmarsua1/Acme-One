@@ -10,47 +10,44 @@ import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorItemShowService implements AbstractShowService<Inventor, Item> {
-
-	// Internal state ---------------------------------------------------------
-
+public class InventorComponentShowService implements AbstractShowService<Inventor, Item> {
+	
 	@Autowired
 	protected InventorItemRepository repository;
-
-	// AbstractUpdateService<Inventor, Item> interface -----------------
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
-
-		boolean result;
-		int itemId;
+		
+		Integer id;
 		Item item;
-		itemId = request.getModel().getInteger("id");
-		item = this.repository.findOneItemById(itemId);
-		result = item != null && item.getInventor().getId() == request.getPrincipal().getActiveRoleId();
-
+		boolean result;
+		id = request.getModel().getInteger("id");
+		item = this.repository.findOneItemById(id);
+		result = request.getPrincipal().getActiveRoleId() == item.getInventor().getId();
+		
 		return result;
 	}
 
 	@Override
 	public Item findOne(final Request<Item> request) {
 		assert request != null;
-
-		int itemId;
-		Item result;
-		itemId = request.getModel().getInteger("id");
-		result = this.repository.findOneItemById(itemId);
-
-		return result;
+		
+		Integer id;
+		Item item;
+		id = request.getModel().getInteger("id");
+		item = this.repository.findOneItemById(id);
+		
+		return item;
 	}
-	
+
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
-		request.unbind(entity, model, "code", "type", "name", "description", "technology" , "retailPrice", "link");
+		model.setAttribute("item", entity.getType());
+		
+		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link", "published");
 	}
 }
