@@ -24,4 +24,7 @@ patron.patronage.form.label.link = Link
 patron.patronage.form.label.showInventor = View inventor
 
 patron.patronage.form.label.createPatronageReport = Create Patronage Report
-
+patron.patronage.form.button.delete = Delete
+patron.patronage.form.button.update = Update
+patron.patonage.form.error.too-close-init-date = Invalid date
+patron.patonage.form.error.one-month = Invalid date

@@ -21,10 +21,10 @@
 	<acme:input-textbox code="patron.patronage.form.label.initDate" path="initDate"/>
 	<acme:input-textbox code="patron.patronage.form.label.finishDate" path="finishDate"/>
 	<acme:input-textbox code="patron.patronage.form.label.budget" path="budget"/>
-	<acme:input-textbox code="patron.patronage.form.label.status" path="status"/>
+	<acme:input-textbox code="patron.patronage.form.label.status" path="status" readonly="true"/>
 	<acme:input-textbox code="patron.patronage.form.label.legalStuff" path="legalStuff"/>
 	<acme:input-textbox code="patron.patronage.form.label.link" path="link"/>
-	<acme:button code="patron.patronage.form.label.showInventor" action="/any/user-account/show?id=${inventorId}"/> 
+	<acme:button code="patron.patronage.form.label.showInventor" action="/any/user-account/show?id=${inventorId}"/>
 	<jstl:choose>
 		<jstl:when test="${command != 'create'}">
 			<acme:button code="patron.patronage.form.label.createPatronageReport" action="/patron/patronage-report/create?masterId=${id}"/>

@@ -27,7 +27,7 @@ public class Configuration extends AbstractEntity {
 	protected String				currency;
 	
 	@NotBlank
-	@Pattern(regexp = "^$|(^[^\\.]+([\\.][^\\.]+)*$)")
+	@Pattern(regexp = "^(EUR|GBP|USD)$")
 	protected String				acceptedCurrencies;
 
 	@NotBlank
