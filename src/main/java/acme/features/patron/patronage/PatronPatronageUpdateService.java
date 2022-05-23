@@ -102,16 +102,25 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 			errors.state(request, entity.getFinishDate().after(finish), "finishDate", "patron.patonage.form.error.one-month");
 		}
 		if(!errors.hasErrors("budget")) {
-			final String [] currencies = this.repository.findConfiguration().getAcceptedCurrencies().split(",");
+			/*final String [] currencies = this.repository.findConfiguration().getAcceptedCurrencies().split(",");
 			Boolean acceptedCurrencies = false;
 			for(int i = 0; i<currencies.length;i++) {
 				if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
 					acceptedCurrencies=true;
 				}
-			}
+			}*/
+			/*final String upperCaseCurrency = entity.getBudget().getCurrency().toUpperCase();
+			boolean accepted = false;
 			
+			// Manage likely currencies
+			for (final String acceptedCurrency : this.repository.findConfiguration().getAcceptedCurrencies().toUpperCase().split(".")) {
+				if (upperCaseCurrency.equals(acceptedCurrency)) {
+					accepted = true;
+					break;
+				}
+			}*/
 			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
-			errors.state(request, acceptedCurrencies, "budget", "patron.patronage.form.error.non-accepted-currency");
+			//errors.state(request, accepted, "budget", "patron.patronage.form.error.non-accepted-currency");
 		}
 	}
 

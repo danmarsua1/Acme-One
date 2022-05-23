@@ -25,3 +25,5 @@ patron.patronage.form.label.showInventor= Ver inventor
 
 patron.patronage.form.button.delete = Borrar
 patron.patronage.form.button.update = Actualizar
+patron.patonage.form.error.too-close-init-date = Fecha inválida
+patron.patonage.form.error.one-month = Fecha inválida
