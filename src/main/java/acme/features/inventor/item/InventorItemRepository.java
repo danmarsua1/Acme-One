@@ -29,10 +29,10 @@ public interface InventorItemRepository extends AbstractRepository {
 	@Query("SELECT item FROM Toolkit toolkit, Quantity quantity, Item item WHERE toolkit.id = quantity.toolkit.id AND quantity.item.id = item.id AND toolkit.id = :toolkitId AND item.inventor.id = :inventorId")
 	Collection<Item> findManyItemsByToolkitIdAndInventorId(int toolkitId, int inventorId);
 	
-	@Query("SELECT item FROM Item item WHERE item.inventor.id = :id AND item.itemType = acme.entities.item.ItemType.COMPONENT")
+	@Query("SELECT item FROM Item item WHERE item.inventor.id = :id AND item.type = 'COMPONENT'")
 	Collection<Item> findComponentsByInventorId(int id);
 	
-	@Query("SELECT item FROM Item item WHERE item.inventor.id = :id AND item.itemType = acme.entities.item.ItemType.TOOL")
+	@Query("SELECT item FROM Item item WHERE item.inventor.id = :id AND item.type = 'TOOL'")
 	Collection<Item> findToolsByInventorId(int id);
 	
 	@Modifying
