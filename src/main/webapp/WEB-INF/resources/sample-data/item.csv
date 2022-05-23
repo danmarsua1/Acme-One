@@ -1,8 +1,5 @@
 key,type,name,code,technology,description,retail-price,link,published,key:inventor
-item-01,COMPONENT,Item1,AAA-111-A,C++,C++ is a compiled language,GBP 10.0,https://www.item1.com,,inventor-01
-item-02,COMPONENT,Item2,AAA-112-A,Python,Python is a interpreted language,GBP 18.0,https://www.item2.com,,inventor-01
-item-03,TOOL,Item2,AAA-113-A,Eclipse,Eclipse is a IDE for developing,GBP 6.0,https://www.item3.com,,inventor-02
-item-04,TOOL,Item4,AAA-114-A,C++,C++ is a compiled language,GBP 33.7,https://www.item4.com,,inventor-01
-item-02,COMPONENT,Item3,AAA-115-A,Python,Python is a interpreted language,GBP 28.0,null,true,inventor-02
-item-02,COMPONENT,Item4,AAA-116-A,C++,C++ is a compiled language,GBP 13.0,null,false,inventor-02
-item-02,COMPONENT,Item3,AAA-117-A,Eclipse,Eclipse is a IDE for developing,GBP 8.0,null,false,inventor-01
+item-01,COMPONENT,Item1,AAA-111-A,C++,C++ is a compiled language,GBP 10.0,https://www.item1.com,false,inventor-01
+item-02,COMPONENT,Item2,AAA-112-A,Python,Python is a interpreted language,GBP 18.0,https://www.item2.com,false,inventor-01
+item-03,TOOL,Item2,AAA-113-A,Eclipse,Eclipse is a IDE for developing,GBP 6.0,https://www.item3.com,false,inventor-02
+item-04,TOOL,Item4,AAA-114-A,C++,C++ is a compiled language,GBP 33.7,https://www.item4.com,false,inventor-01
