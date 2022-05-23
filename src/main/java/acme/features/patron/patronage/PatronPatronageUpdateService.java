@@ -1,5 +1,9 @@
 package acme.features.patron.patronage;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,9 +80,27 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 			Patronage existing;
 			
 			existing = this.repository.findOnePatronageByCode(entity.getCode());
+			if(existing!=null) {
 			errors.state(request, existing.getId()==entity.getId(), "code", "patron.patronage.form.error.duplicated");
+			}
 		}
-		
+		if (!errors.hasErrors("initDate")) {
+			Calendar calendar;
+
+			calendar = new GregorianCalendar();
+			calendar.add(Calendar.DAY_OF_MONTH, 1);
+			errors.state(request, entity.getInitDate().after(calendar.getTime()), "initDate", "patron.patonage.form.error.too-close-init-date");
+		}
+		if (!errors.hasErrors("finishDate")) {
+			Calendar calendar;
+			Date finish;
+			calendar = new GregorianCalendar();
+			calendar.setTime(entity.getInitDate());
+			calendar.add(Calendar.MONTH, 1);
+			calendar.add(Calendar.DAY_OF_MONTH, 1);
+			finish = calendar.getTime();
+			errors.state(request, entity.getFinishDate().after(finish), "finishDate", "patron.patonage.form.error.one-month");
+		}
 		if(!errors.hasErrors("budget")) {
 			final String [] currencies = this.repository.findConfiguration().getAcceptedCurrencies().split(",");
 			Boolean acceptedCurrencies = false;
@@ -97,6 +119,8 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 	public void update(final Request<Patronage> request, final Patronage entity) {
 		assert request != null;
 		assert entity != null;
+		
+		entity.setPublished(false);
 		this.repository.save(entity);
 		
 	}

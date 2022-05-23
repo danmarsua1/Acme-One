@@ -34,6 +34,8 @@ public class Patronage extends AbstractEntity {
 	
 	// Attributes -------------------------------------------------------------
 	
+	protected boolean published;
+	
 	@NotNull
 	protected StatusPatronage status;
 
