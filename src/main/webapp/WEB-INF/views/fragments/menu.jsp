@@ -95,6 +95,8 @@
 					action="/patron/patron-dashboard/show" />
 			<acme:menu-suboption code="master.menu.patron.patronages"
 					action="/patron/patronage/list" />
+			<acme:menu-suboption code="master.menu.patron.patronages.create"
+					action="/patron/patronage/create"/>
 			<acme:menu-suboption code="master.menu.patron.patronage-reports"
 					action="/patron/patronage-report/list" />
 		</acme:menu-option>

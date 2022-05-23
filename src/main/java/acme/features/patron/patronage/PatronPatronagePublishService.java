@@ -82,36 +82,26 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		}
 		
 		if(!errors.hasErrors("budget")) {
-			final String [] currencies = this.repository.findConfiguration().getAcceptedCurrencies().split(",");
-			Boolean acceptedCurrencies = false;
-			for(int i = 0; i<currencies.length;i++) {
-				if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
-					acceptedCurrencies=true;
+			final String upperCaseCurrency = entity.getBudget().getCurrency().toUpperCase();
+			boolean accepted = false;
+			
+			// Manage likely currencies
+			for (final String acceptedCurrency : this.repository.findConfiguration().getAcceptedCurrencies().toUpperCase().split("[.]")) {
+				if (upperCaseCurrency.equals(acceptedCurrency)) {
+					accepted = true;
+					break;
 				}
 			}
-			
 			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
-			errors.state(request, acceptedCurrencies, "budget", "patron.patronage.form.error.non-accepted-currency");
+			errors.state(request, accepted, "budget", "patron.patronage.form.error.non-accepted-currency");
 		}
-		/*if(!errors.hasErrors("budget")) {
-			final String currencies = entity.getBudget().getCurrency();
-			final String currencyDispo = this.repository.findConfiguration();
-			boolean acceptedCurrencies = false;
-			for(final String currency:currencyDispo.split(",")) {
-				acceptedCurrencies = currency.trim().equalsIgnoreCase(currencies);
-				if(acceptedCurrencies) break;
-				}
-			
-			
-			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
-			errors.state(request, acceptedCurrencies, "budget", "patron.patronage.form.error.non-accepted-currency");
-		}*/
 	}
 
 	@Override
 	public void update(final Request<Patronage> request, final Patronage entity) {
 		assert request != null;
 		assert entity != null;
+		entity.setPublished(true);
 		this.repository.save(entity);
 		
 	}

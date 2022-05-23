@@ -1,5 +1,6 @@
 package acme.features.patron.patronage;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -26,12 +27,8 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		
 		boolean result;
-		int patronageId;
-		Patronage patronage;
 		
-		patronageId = request.getModel().getInteger("id");
-		patronage = this.repository.findOnePatronageById(patronageId);
-		result = request.getPrincipal().getActiveRoleId() == patronage.getPatron().getId();
+		result = request.getPrincipal().hasRole(Patron.class);
 		
 		return result;
 	}
@@ -42,9 +39,12 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "code", "creationMoment", "initDate", "finishDate",
-			"budget" , "status", "legalStuff", "link");
-		
+		Date creationMoment;
+
+		creationMoment = new Date(System.currentTimeMillis() - 1);
+		request.bind(entity, errors, "code", "initDate", "finishDate",
+			"budget", "legalStuff", "link");
+		entity.setCreationMoment(creationMoment);
 	}
 
 	@Override
@@ -67,6 +67,16 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 
 		result.setPatron(this.repository.findPatronByUserId(request.getPrincipal().getAccountId()));
 		result.setStatus(StatusPatronage.PROPOSED);
+		
+		// Manage unique code
+		String ticker = "";
+
+		do
+			ticker = this.createTicker();
+		while (!this.isTickerUnique(ticker));
+		result.setCode(ticker);
+
+		result.setPublished(false);
 		
 		return result;
 	}
@@ -102,16 +112,18 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			errors.state(request, entity.getFinishDate().after(finish), "finishDate", "patron.patonage.form.error.one-month");
 		}
 		if(!errors.hasErrors("budget")) {
-			final String [] currencies = this.repository.findConfiguration().getAcceptedCurrencies().split(",");
-			Boolean acceptedCurrencies = false;
-			for(int i = 0; i<currencies.length;i++) {
-				if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
-					acceptedCurrencies=true;
+			final String upperCaseCurrency = entity.getBudget().getCurrency().toUpperCase();
+			boolean accepted = false;
+			
+			// Manage likely currencies
+			for (final String acceptedCurrency : this.repository.findConfiguration().getAcceptedCurrencies().toUpperCase().split("[.]")) {
+				if (upperCaseCurrency.equals(acceptedCurrency)) {
+					accepted = true;
+					break;
 				}
 			}
-			
 			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
-			errors.state(request, acceptedCurrencies, "budget", "patron.patronage.form.error.non-accepted-currency");
+			errors.state(request, accepted, "budget", "patron.patronage.form.error.non-accepted-currency");
 		}
 		
 	}
@@ -122,8 +134,98 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity !=null;
 		
+		String itemTicker = "";
+
+		do
+			itemTicker = this.createTicker();
+		while (!this.isTickerUnique(itemTicker));
+		entity.setCode(itemTicker);
+		
 		this.repository.save(entity);
 		
+		
 	}
+	
+	// Other business methods -------------------------
+
+		public String numbersSecuency() {
+
+			final char[] elementos = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+			final char[] conjunto = new char[3];
+
+			final String secuency;
+
+			for (int i = 0; i < 3; i++) {
+				final int el = (int) (Math.random() * 9);
+				conjunto[i] = elementos[el];
+			}
+
+			secuency = new String(conjunto);
+			return secuency;
+
+		}
+
+		public String lettersSecuency() {
+
+			final char[] elementos = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+					'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+
+			final char[] conjunto = new char[3];
+
+			final String secuency;
+
+			for (int i = 0; i < 3; i++) {
+				final int el = (int) (Math.random() * 25);
+				conjunto[i] = elementos[el];
+			}
+
+			secuency = new String(conjunto).toUpperCase();
+			return secuency;
+
+		}
+
+		public String generateLetter(final String secuency) {
+
+			final int rd = (int) (Math.random() * 2);
+			final String letter = String.valueOf(secuency.charAt(rd)).toUpperCase();
+
+			return letter;
+
+		}
+
+		public String createTicker() {
+
+			// The ticker must be as follow: AAA-XXX-A
+			String ticker = new String();
+			final String lettersSecuency = this.lettersSecuency();
+
+			// Set ticker format
+			ticker = this.lettersSecuency() + "-" + this.numbersSecuency() + "-" + this.generateLetter(lettersSecuency);
+
+			return ticker;
+
+		}
+
+		public boolean isTickerUnique(final String ticker) {
+
+			Boolean result = true;
+
+			final ArrayList<Patronage> patronages = new ArrayList<>(this.repository.findAllPatronages());
+
+			final ArrayList<String> tickers = new ArrayList<>();
+
+			for (final Patronage t : patronages) {
+				tickers.add(t.getCode());
+			}
+
+			if (tickers.contains(ticker)) {
+				result = false;
+				this.createTicker();
+			}
+
+			return result;
+
+		}
 
 }

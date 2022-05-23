@@ -1,9 +1,5 @@
 package acme.features.patron.patronage;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -83,7 +79,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 			if(existing!=null) {
 			errors.state(request, existing.getId()==entity.getId(), "code", "patron.patronage.form.error.duplicated");
 			}
-		}
+		}/*
 		if (!errors.hasErrors("initDate")) {
 			Calendar calendar;
 
@@ -100,27 +96,20 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 			calendar.add(Calendar.DAY_OF_MONTH, 1);
 			finish = calendar.getTime();
 			errors.state(request, entity.getFinishDate().after(finish), "finishDate", "patron.patonage.form.error.one-month");
-		}
+		}*/
 		if(!errors.hasErrors("budget")) {
-			/*final String [] currencies = this.repository.findConfiguration().getAcceptedCurrencies().split(",");
-			Boolean acceptedCurrencies = false;
-			for(int i = 0; i<currencies.length;i++) {
-				if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
-					acceptedCurrencies=true;
-				}
-			}*/
-			/*final String upperCaseCurrency = entity.getBudget().getCurrency().toUpperCase();
+			final String upperCaseCurrency = entity.getBudget().getCurrency().toUpperCase();
 			boolean accepted = false;
 			
 			// Manage likely currencies
-			for (final String acceptedCurrency : this.repository.findConfiguration().getAcceptedCurrencies().toUpperCase().split(".")) {
+			for (final String acceptedCurrency : this.repository.findConfiguration().getAcceptedCurrencies().toUpperCase().split("[.]")) {
 				if (upperCaseCurrency.equals(acceptedCurrency)) {
 					accepted = true;
 					break;
 				}
-			}*/
+			}
 			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
-			//errors.state(request, accepted, "budget", "patron.patronage.form.error.non-accepted-currency");
+			errors.state(request, accepted, "budget", "patron.patronage.form.error.non-accepted-currency");
 		}
 	}
 
