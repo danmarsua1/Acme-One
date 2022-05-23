@@ -9,9 +9,15 @@
 # they accept any liabilities with respect to them.
 
 
-administrator.configuration.show.label.currency=Currency
-administrator.configuration.show.label.acceptedCurrencies= Accepted Currencies
-administrator.configuration.show.label.strongSpam = Strong Spam
-administrator.configuration.show.label.strongSpamThreshold = Strong Spam Threshold
-administrator.configuration.show.label.weakSpam = Weak Spam
-administrator.configuration.show.label.weakSpamThreshold = Weak Spam Threshold
+
+
+
+administrator.configuration.configuration.form.label.currency= Currency
+administrator.configuration.configuration.form.label.acceptedCurrencies= Accepted Currencies
+administrator.configuration.configuration.form.label.strongSpam = Strong Spam
+administrator.configuration.configuration.form.label.strongSpamThreshold= Strong Spam Threshold
+administrator.configuration.configuration.form.label.weakSpam = Weak Spam
+administrator.configuration.configuration.form.label.weakSpamThreshold=Weak Spam Threshold
+administrator.configuration.configuration.form.button.update=Update
+administrator.configuration.configuration.form.button.submit=Update
+

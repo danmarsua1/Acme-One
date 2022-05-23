@@ -4,41 +4,14 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 
-<table class="table table-sm">
-	<tr>
-		<th scope="row"><acme:message
-				code="administrator.configuration.show.label.currency" />
-		</th>
-		<td><acme:print value="${currency}" /></td>
-	</tr>
-	<tr>
-		<th scope="row"><acme:message
-				code="administrator.configuration.show.label.acceptedCurrencies" />
-		</th>
-		<td><acme:print value="${acceptedCurrencies}" /></td>
-	</tr>
-		<tr>
-		<th scope="row"><acme:message
-				code="administrator.configuration.show.label.strongSpam" />
-		</th>
-		<td><acme:print value="${strongSpam}" /></td>
-	</tr>
-		<tr>
-		<th scope="row"><acme:message
-				code="administrator.configuration.show.label.strongSpamThreshold" />
-		</th>
-		<td><acme:print value="${strongSpamThreshold}" /></td>
-	</tr>
-			<tr>
-		<th scope="row"><acme:message
-				code="administrator.configuration.show.label.weakSpam" />
-		</th>
-		<td><acme:print value="${weakSpam}" /></td>
-	</tr>
-		<tr>
-		<th scope="row"><acme:message
-				code="administrator.configuration.show.label.weakSpamThreshold" />
-		</th>
-		<td><acme:print value="${weakSpamThreshold}" /></td>
-	</tr>
-</table>
+<acme:form>
+	<acme:input-textbox code="administrator.configuration.configuration.form.label.currency" path="currency"/>
+	<acme:input-textbox code="administrator.configuration.configuration.form.label.acceptedCurrencies" path="acceptedCurrencies"/>
+	<acme:input-textbox code="administrator.configuration.configuration.form.label.strongSpam" path="strongSpam"/>
+	<acme:input-textbox code="administrator.configuration.configuration.form.label.strongSpamThreshold" path="strongSpamThreshold"/>
+		<acme:input-textbox code="administrator.configuration.configuration.form.label.weakSpam" path="weakSpam"/>
+	<acme:input-textbox code="administrator.configuration.configuration.form.label.weakSpamThreshold" path="weakSpamThreshold"/>
+	
+	<acme:button  test="${command == 'show'}" code="administrator.configuration.configuration.form.button.update" action="/administrator/configuration/update"/>
+	<acme:submit test="${command == 'update'}" code="administrator.configuration.configuration.form.button.submit" action="/administrator/configuration/update"/>
+</acme:form>
