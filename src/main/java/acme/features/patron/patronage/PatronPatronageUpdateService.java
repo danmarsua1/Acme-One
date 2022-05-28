@@ -1,5 +1,9 @@
 package acme.features.patron.patronage;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +11,7 @@ import acme.entities.patronage.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
+import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Patron;
 
@@ -47,10 +52,13 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		UserAccount inventor;
 
 		request.unbind(entity, model, "code", "creationMoment", "initDate", "finishDate",
-			"budget" , "status", "legalStuff", "link");
-		
+			"budget" , "status", "legalStuff", "link", "published");
+		inventor = entity.getInventor().getUserAccount();
+		model.setAttribute("inventorId", inventor.getId());
 	}
 
 	@Override
@@ -71,15 +79,6 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		if(!errors.hasErrors("code")) {
-			Patronage existing;
-			
-			existing = this.repository.findOnePatronageByCode(entity.getCode());
-			if(existing!=null) {
-			errors.state(request, existing.getId()==entity.getId(), "code", "patron.patronage.form.error.duplicated");
-			}
-		}/*
 		if (!errors.hasErrors("initDate")) {
 			Calendar calendar;
 
@@ -96,7 +95,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 			calendar.add(Calendar.DAY_OF_MONTH, 1);
 			finish = calendar.getTime();
 			errors.state(request, entity.getFinishDate().after(finish), "finishDate", "patron.patonage.form.error.one-month");
-		}*/
+		}
 		if(!errors.hasErrors("budget")) {
 			final String upperCaseCurrency = entity.getBudget().getCurrency().toUpperCase();
 			boolean accepted = false;

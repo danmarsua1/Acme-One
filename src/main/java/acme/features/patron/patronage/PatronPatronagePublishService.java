@@ -73,14 +73,6 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert entity != null;
 		assert errors != null;	
 		
-		
-		if(!errors.hasErrors("code")) {
-			Patronage existing;
-			
-			existing = this.repository.findOnePatronageByCode(entity.getCode());
-			errors.state(request, existing.getId()==entity.getId(), "code", "patron.patronage.form.error.duplicated");
-		}
-		
 		if(!errors.hasErrors("budget")) {
 			final String upperCaseCurrency = entity.getBudget().getCurrency().toUpperCase();
 			boolean accepted = false;
