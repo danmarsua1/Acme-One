@@ -1,6 +1,7 @@
 package acme.testing.patron.patronage;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -38,5 +39,19 @@ public class PatronPatronageListTest extends TestHarness {
 		super.checkInputBoxHasValue("link", link);
 		
 		super.signOut();
+	}
+	
+	@Test
+	@Order(20)
+	public void negativeTest() {
+		// HINT: there's no negative test case for this listing, since it doesn't
+		// HINT+ involve filling in any forms.
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.navigate("/patron/patronage/list");
+		super.checkPanicExists();
 	}
 }
