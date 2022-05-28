@@ -19,6 +19,8 @@
 	<acme:input-textbox code="patron.patronage.form.label.code" path="code" readonly="true"/>
 	<jstl:if test="${command != 'create'}">
 		<acme:input-textbox code="patron.patronage.form.label.creationMoment" path="creationMoment" readonly="true"/>
+		<acme:input-textbox code="patron.patronage.form.label.initDate" path="initDate" readonly="true"/>
+		<acme:input-textbox code="patron.patronage.form.label.finishDate" path="finishDate" readonly="true"/>
 	</jstl:if>
 	<jstl:if test="${command == 'create'}">
 		<acme:input-textbox code="patron.patronage.form.label.initDate" path="initDate"/>
