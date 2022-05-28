@@ -69,8 +69,6 @@
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.any.item" action="/any/item/list"/>
 			<acme:menu-suboption code="master.menu.any.chirp" action="/any/chirp/list"/>
-			<acme:menu-suboption code="master.menu.any.item.list.tool" action="/any/item/list-tool"/>
-			<acme:menu-suboption code="master.menu.any.item.list.component" action="/any/item/list-component"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">

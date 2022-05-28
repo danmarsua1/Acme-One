@@ -16,11 +16,10 @@ public class InventorToolkitUpdateTest extends TestHarness {
 		
 		super.clickOnMenu("Inventor", "List toolkits");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(2, "asc");
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("description", description);
 		super.fillInputBoxIn("assemblyNotes", assemblyNotes);
@@ -28,10 +27,9 @@ public class InventorToolkitUpdateTest extends TestHarness {
 		super.clickOnSubmit("Update");
 
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(2, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
@@ -48,11 +46,11 @@ public class InventorToolkitUpdateTest extends TestHarness {
 		
 		super.clickOnMenu("Inventor", "List toolkits");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(2, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		
-		super.fillInputBoxIn("code", code);
+//		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("description", description);
 		super.fillInputBoxIn("assemblyNotes", assemblyNotes);
