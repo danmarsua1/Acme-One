@@ -22,9 +22,15 @@ patron.patronage.form.label.status = Status
 patron.patronage.form.label.legalStuff = Legal stuff
 patron.patronage.form.label.link = Link
 patron.patronage.form.label.showInventor = View inventor
+patron.patronage.form.label.selectInventor = Link inventor
 
 patron.patronage.form.label.createPatronageReport = Create Patronage Report
 patron.patronage.form.button.delete = Delete
 patron.patronage.form.button.update = Update
-patron.patonage.form.error.too-close-init-date = Invalid date
-patron.patonage.form.error.one-month = Invalid date
+patron.patronage.form.button.publish = Publish
+patron.patronage.form.button.create = Create
+
+patron.patronage.form.error.too-close-init-date = Invalid date
+patron.patronage.form.error.one-month = Invalid date
+patron.patronage.form.error.non-accepted-currency = Non accepted currency
+patron.patronage.form.error.negative-budget= The amount can't be negative

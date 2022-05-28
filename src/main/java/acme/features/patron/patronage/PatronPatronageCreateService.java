@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
 import acme.entities.patronage.StatusPatronage;
+import acme.features.inventor.patronage.InventorPatronageRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractCreateService;
+import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Service
@@ -22,8 +25,10 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	@Autowired
 	protected PatronPatronageRepository repository;
 	
-	@Override
-	public boolean authorise(final Request<Patronage> request) {
+	@Autowired
+	protected InventorPatronageRepository inventorRepository;
+	
+	@Override	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
 		
 		boolean result;
@@ -38,9 +43,9 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		Date creationMoment;
-
+		
+		request.bind(entity, errors, "code", "initDate", "finishDate",
+			"budget", "legalStuff", "link");		
 		creationMoment = new Date(System.currentTimeMillis() - 1);
 		request.bind(entity, errors, "code", "initDate", "finishDate",
 			"budget", "legalStuff", "link");
@@ -55,18 +60,26 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 
 		request.unbind(entity, model, "code", "creationMoment", "initDate", "finishDate",
 			"budget" , "status", "legalStuff", "link");		
+		List<Inventor> inventors = this.inventorRepository.findAllInventors();
+		model.setAttribute("inventors", inventors);
 	}
 
 	@Override
 	public Patronage instantiate(final Request<Patronage> request) {
 		assert request != null;
 		
+		Date creationMoment;
 		Patronage result;
 		result = new Patronage();
 
+		
 
 		result.setPatron(this.repository.findPatronByUserId(request.getPrincipal().getAccountId()));
+		
 		result.setStatus(StatusPatronage.PROPOSED);
+		
+		List<Inventor> inventors = this.inventorRepository.findAllInventors();
+		result.setInventor(this.inventorRepository.findInventorById(inventors.get(0).getId()));
 		
 		// Manage unique code
 		String ticker = "";
@@ -75,8 +88,10 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			ticker = this.createTicker();
 		while (!this.isTickerUnique(ticker));
 		result.setCode(ticker);
-
 		result.setPublished(false);
+		
+		creationMoment = new Date(System.currentTimeMillis() - 1000);
+		result.setCreationMoment(creationMoment);
 		
 		return result;
 	}
@@ -86,14 +101,6 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		if(!errors.hasErrors("code")) {
-			Patronage existing;
-			
-			existing = this.repository.findOnePatronageByCode(entity.getCode());
-			if(existing!=null) {
-			errors.state(request, existing.getId()==entity.getId(), "code", "patron.patronage.form.error.duplicated");
-			}
-		}
 		if (!errors.hasErrors("initDate")) {
 			Calendar calendar;
 
@@ -134,17 +141,17 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity !=null;
 		
-		String itemTicker = "";
-
-		do
-			itemTicker = this.createTicker();
-		while (!this.isTickerUnique(itemTicker));
-		entity.setCode(itemTicker);
+		Date creationMoment;
 		
-		final int patronId = request.getPrincipal().getAccountId();
-		Patron patron = this.repository.findOnePatronById(patronId);
+		creationMoment = new Date(System.currentTimeMillis() - 1000);
+		entity.setCreationMoment(creationMoment);
 		
-		entity.setPatron(patron);
+		String nameInventor = (String) request.getModel().getAttribute("inventors");
+		
+		Inventor inventor = this.inventorRepository.findByName(nameInventor);
+		
+		entity.setInventor(inventor);
+		
 		
 		this.repository.save(entity);
 		
