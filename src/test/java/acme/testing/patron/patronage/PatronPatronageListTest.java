@@ -32,8 +32,8 @@ public class PatronPatronageListTest extends TestHarness {
 		super.checkInputBoxHasValue("legalStuff", legalStuff);
 		super.checkInputBoxHasValue("budget", budget);
 		super.checkInputBoxHasValue("creationMoment", creationMoment);
-		super.checkInputBoxHasValue("initDate", initDate);
 		super.checkInputBoxHasValue("status", status);
+		super.checkInputBoxHasValue("initDate", initDate);
 		super.checkInputBoxHasValue("finishDate", finishDate);
 		super.checkInputBoxHasValue("link", link);
 		

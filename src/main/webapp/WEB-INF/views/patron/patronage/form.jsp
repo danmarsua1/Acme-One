@@ -37,6 +37,10 @@
 	</jstl:if>
 	
 	<acme:input-textbox code="patron.patronage.form.label.legalStuff" path="legalStuff"/>
+	<jstl:if test="${command == 'show'}">
+		<acme:input-textbox code="patron.patronage.form.label.initDate" path="initDate" readonly="true"/>
+		<acme:input-textbox code="patron.patronage.form.label.finishDate" path="finishDate" readonly="true"/>
+	</jstl:if>
 	<acme:input-textbox code="patron.patronage.form.label.link" path="link"/>
 	<acme:button code="patron.patronage.form.label.showInventor" action="/any/user-account/show?id=${inventorId}"/>
 	
