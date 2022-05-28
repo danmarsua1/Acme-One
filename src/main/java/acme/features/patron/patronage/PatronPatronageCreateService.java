@@ -46,10 +46,6 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		
 		request.bind(entity, errors, "code", "initDate", "finishDate",
 			"budget", "legalStuff", "link");		
-		creationMoment = new Date(System.currentTimeMillis() - 1);
-		request.bind(entity, errors, "code", "initDate", "finishDate",
-			"budget", "legalStuff", "link");
-		entity.setCreationMoment(creationMoment);
 	}
 
 	@Override
