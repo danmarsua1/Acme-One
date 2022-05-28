@@ -15,7 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form readonly="true">
+<acme:form>
 	<acme:input-textbox code="inventor.patronage.form.label.code" path="code" readonly="true"/>
 	<acme:input-textbox code="inventor.patronage.form.label.creationMoment" path="creationMoment" readonly="true"/>
 	<acme:input-textbox code="inventor.patronage.form.label.initDate" path="initDate" readonly="true"/>

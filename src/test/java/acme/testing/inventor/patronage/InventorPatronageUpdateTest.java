@@ -7,7 +7,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.TestHarness;
 
 public class InventorPatronageUpdateTest extends TestHarness	{
-	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/patronage/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -18,7 +17,6 @@ public class InventorPatronageUpdateTest extends TestHarness	{
 		super.checkListingExists();
 		super.sortListing(0, "desc");
 		
-		super.checkColumnHasValue(recordIndex, 0, initDate);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.fillInputBoxIn("status", status);
