@@ -24,6 +24,7 @@ inventor.item.form.label.technology = Technology
 inventor.item.form.label.retailPrice = Retail price
 inventor.item.form.label.link = Link
 inventor.item.form.label.component = Component
+inventor.item.form.label.published = Published
 inventor.item.form.button.create-component = Create component
 inventor.item.form.button.update-component = Update component
 inventor.item.form.button.delete-component = Delete component
