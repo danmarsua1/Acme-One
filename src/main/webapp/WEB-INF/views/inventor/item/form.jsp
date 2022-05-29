@@ -12,7 +12,7 @@
 	<acme:input-url code="inventor.item.form.label.link" path="link"/>
 	<acme:input-textbox code="inventor.item.form.label.published" path="published"/>
 	
-	<acme:input-select code="inventor.item.form.label.type" path="itemType">
+	<acme:input-select code="inventor.item.form.label.type" path="type">
 	    <acme:input-option code="COMPONENT" value="COMPONENT" selected ="${type == 'COMPONENT'}"/>
         <acme:input-option code="TOOL" value="TOOL" selected ="${type == 'TOOL'}"/>
 	</acme:input-select>
