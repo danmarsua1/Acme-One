@@ -26,12 +26,8 @@ import acme.roles.Inventor;
 @Service
 public class InventorItemListService implements AbstractListService<Inventor, Item> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected InventorItemRepository repository;
-
-	// AbstractCreateService<Authenticated, Inventor> ---------------------------
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -68,7 +64,7 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "type", "description");
+		request.unbind(entity, model, "name", "code", "technology");
 	}
 
 }

@@ -44,10 +44,8 @@ master.menu.inventor.toolkits = List toolkits
 master.menu.inventor.toolkits.create = Create toolkit
 master.menu.inventor.patronages = Patronages
 master.menu.inventor.patronage-reports = Patronage reports
-master.menu.inventor.item.tool = List tools
-master.menu.inventor.item.component = List components
-master.menu.inventor.item.create-component = Create new component
-master.menu.inventor.item.create = Create new tool
+master.menu.inventor.tool.list = List tools
+master.menu.inventor.component.list = List components
 
 # master.menu.provider ########################################################
 
@@ -87,11 +85,13 @@ master.menu.any.user-accounts = User Accounts
 master.menu.any.toolkits = Toolkits 
 master.menu.any.item = Items
 master.menu.any.chirp = Chirp
+master.menu.any.component.list = List components
+master.menu.any.tool.list = List tools
 master.menu.any.favourite-link = Favourite link
+master.menu.any.configuration = Configuration
 
 # master.menu.authenticated ####################################################
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.announcement = Announcements
 master.menu.authenticated.configuration = Configuration
-

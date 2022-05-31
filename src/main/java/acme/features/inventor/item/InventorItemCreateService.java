@@ -8,11 +8,11 @@ import acme.entities.ItemType;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractUpdateService;
+import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorComponentUpdateService implements AbstractUpdateService<Inventor, Item> {
+public class InventorItemCreateService implements AbstractCreateService<Inventor, Item> {
 	
 	@Autowired
 	protected InventorItemRepository repository;
@@ -20,38 +20,45 @@ public class InventorComponentUpdateService implements AbstractUpdateService<Inv
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
-		return true;
+//		request.getModel();
+//		return true;
+		boolean result;
+		result = request.getPrincipal().hasRole(Inventor.class);
+		return result;
 	}
-	
+
 	@Override
 	public void bind(final Request<Item> request, final Item entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		entity.setType(ItemType.COMPONENT);
-		
+		 
+//		entity.setPublished(false);
 		request.bind(entity, errors, "type", "name", "code", "technology", "description", "retailPrice", "link");
 	}
-	
+
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		entity.setType(ItemType.COMPONENT);
-		
-		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link");
+
+		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link", "published");		
 	}
 	
 	@Override
-	public Item findOne(final Request<Item> request) {
+	public Item instantiate(final Request<Item> request) {
 		assert request != null;
-
+		
 		Item result;
-		int id;
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneItemById(id);
-
+		Inventor inventor;
+		
+		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());		
+		result = new Item();
+		final ItemType type = ItemType.valueOf((String)request.getModel().getAttribute("type"));
+		result.setType(type);
+		result.setInventor(inventor);
+		
 		return result;
 	}
 	
@@ -59,14 +66,16 @@ public class InventorComponentUpdateService implements AbstractUpdateService<Inv
 	public void validate(final Request<Item> request, final Item entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
-		assert errors != null;
+		assert errors != null;			
 	}
-	
+			
 	@Override
-	public void update(final Request<Item> request, final Item entity) {
+	public void create(final Request<Item> request, final Item entity) {
 		assert request != null;
 		assert entity != null;
-
-		this.repository.save(entity);
+		final ItemType type = ItemType.valueOf((String)request.getModel().getAttribute("type"));
+		entity.setType(type);
+		entity.setPublished(false);
+		this.repository.save(entity);			
 	}
 }

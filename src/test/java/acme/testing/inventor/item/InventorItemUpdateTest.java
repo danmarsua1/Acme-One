@@ -14,10 +14,11 @@ public class InventorItemUpdateTest extends TestHarness {
 	public void positiveTest(final int recordIndex, final String type, final String name, final String code, final String technology, final String description, final String retailPrice, final String link) {
 		super.signIn("inventor1", "inventor1");  // super.signIn("inventor3", "inventor3");
 		
-		super.clickOnMenu("Inventor", "List tools and components");
+		super.clickOnMenu("Inventor", "List items");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 		
+		super.checkColumnHasValue(recordIndex, 0, type);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.fillInputBoxIn("type", type);
@@ -30,7 +31,15 @@ public class InventorItemUpdateTest extends TestHarness {
 		super.clickOnSubmit("Update");
 
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
+		super.checkColumnHasValue(recordIndex, 0, type);
+		super.checkColumnHasValue(recordIndex, 1, name);
+		super.checkColumnHasValue(recordIndex, 2, code);
+		super.checkColumnHasValue(recordIndex, 3, technology);
+		super.checkColumnHasValue(recordIndex, 4, description);
+		super.checkColumnHasValue(recordIndex, 5, retailPrice);
+		super.checkColumnHasValue(recordIndex, 6, link);
+
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("type", type);
@@ -40,7 +49,7 @@ public class InventorItemUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("link", link);
-
+		
 		super.signOut();
 	}
 
@@ -50,9 +59,9 @@ public class InventorItemUpdateTest extends TestHarness {
 	public void negativeTest(final int recordIndex, final String type, final String name, final String code, final String technology, final String description, final String retailPrice, final String link) {
 		super.signIn("inventor1", "inventor1");  // super.signIn("inventor3", "inventor3");
 		
-		super.clickOnMenu("Inventor", "List tools and components");
+		super.clickOnMenu("Inventor", "List items");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		

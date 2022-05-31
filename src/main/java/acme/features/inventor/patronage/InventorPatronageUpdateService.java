@@ -45,7 +45,7 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 			assert model != null;
 
 			request.unbind(entity, model, "code", "creationMoment", "initDate", "finishDate",
-				"budget" , "status", "legalStuff", "link");	
+				"budget" , "status", "legalStuff", "link", "published");	
 		}
 
 		@Override
@@ -66,8 +66,6 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 			assert request != null;
 			assert entity != null;
 			assert errors != null;
-			
-			
 		}
 
 		@Override
@@ -75,9 +73,5 @@ public class InventorPatronageUpdateService implements AbstractUpdateService<Inv
 			assert request != null;
 			assert entity != null;
 			this.repository.save(entity);
-			
 		}
 	}
-
-
-
