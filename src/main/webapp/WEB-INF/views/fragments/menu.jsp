@@ -69,8 +69,6 @@
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.any.item" action="/any/item/list"/>
 			<acme:menu-suboption code="master.menu.any.chirp" action="/any/chirp/list"/>
-			<acme:menu-suboption code="master.menu.any.item.list.tool" action="/any/item/list-tool"/>
-			<acme:menu-suboption code="master.menu.any.item.list.component" action="/any/item/list-component"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
@@ -90,14 +88,18 @@
 					action="/inventor/patronage/list" />
 				<acme:menu-suboption code="master.menu.inventor.patronage-reports"
 					action="/inventor/patronage-report/list" />
-				<acme:menu-suboption code="master.menu.inventor.item.create-component"
+<%--			<acme:menu-suboption code="master.menu.inventor.item.create-component"
 				    action="/inventor/item/create-component" />
 				<acme:menu-suboption code="master.menu.inventor.item.component"
 				    action="/inventor/item/list-component" />
 			    <acme:menu-suboption code="master.menu.inventor.item.create"
 				    action="/inventor/item/create-tool" />
 			    <acme:menu-suboption code="master.menu.inventor.item.tool"
-				    action="/inventor/item/list-tool" />
+				    action="/inventor/item/list-tool" />   --%>
+				<acme:menu-suboption code="master.menu.inventor.component.list" 
+				    action="/inventor/item/list?type=COMPONENT"/>
+			    <acme:menu-suboption code="master.menu.inventor.tool.list" 
+			        action="/inventor/item/list?type=TOOL"/>
 			</acme:menu-option>
 		</sec:authorize>
 

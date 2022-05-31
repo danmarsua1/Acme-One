@@ -34,8 +34,6 @@ public class Patronage extends AbstractEntity {
 	
 	// Attributes -------------------------------------------------------------
 	
-	protected boolean published;
-	
 	@NotNull
 	protected StatusPatronage status;
 
@@ -66,6 +64,8 @@ public class Patronage extends AbstractEntity {
 	
 	@URL
 	protected String link;
+	
+	protected boolean published;
 	
 	// Relationships ----------------------------------------------------------
 	

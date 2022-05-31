@@ -7,19 +7,26 @@ import acme.entities.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractDeleteService;
+import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorComponentDeleteService implements AbstractDeleteService<Inventor, Item> {
-
+public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item> {
+	
 	@Autowired
 	protected InventorItemRepository repository;
-			
+	
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
-		return true;
+		boolean result;
+		Item item;
+		int id;
+		id = request.getModel().getInteger("id");
+		item = this.repository.findOneItemById(id);
+//		result = !item.isPublished();
+		result = request.getPrincipal().getActiveRoleId() == item.getInventor().getId();
+		return result;
 	}
 	
 	@Override
@@ -27,6 +34,8 @@ public class InventorComponentDeleteService implements AbstractDeleteService<Inv
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+//		entity.setPublished(false);
+//		this.repository.save(entity);
 		
 		request.bind(entity, errors, "type", "name", "code", "technology", "description", "retailPrice", "link");
 	}
@@ -37,7 +46,7 @@ public class InventorComponentDeleteService implements AbstractDeleteService<Inv
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link");
+		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link", "published");
 	}
 	
 	@Override
@@ -46,7 +55,6 @@ public class InventorComponentDeleteService implements AbstractDeleteService<Inv
 
 		Item result;
 		int id;
-
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneItemById(id);
 
@@ -61,11 +69,11 @@ public class InventorComponentDeleteService implements AbstractDeleteService<Inv
 	}
 	
 	@Override
-	public void delete(final Request<Item> request, final Item entity) {
+	public void update(final Request<Item> request, final Item entity) {
 		assert request != null;
 		assert entity != null;
-		
-		this.repository.deleteQuantityByItemId(entity.getId());
-		this.repository.delete(entity);
+
+		entity.setPublished(false);
+		this.repository.save(entity);
 	}
 }
