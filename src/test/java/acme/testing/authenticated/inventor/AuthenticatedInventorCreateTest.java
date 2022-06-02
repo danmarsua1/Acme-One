@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class InventorCreateTest extends TestHarness{
+public class AuthenticatedInventorCreateTest extends TestHarness{
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/inventor/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
