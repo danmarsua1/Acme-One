@@ -78,8 +78,10 @@
 
 		<sec:authorize access="hasRole('Inventor')">
 			<acme:menu-option code="master.menu.inventor">
-				<acme:menu-suboption code="master.menu.inventor.items"
+			    <acme:menu-suboption code="master.menu.inventor.items"
 					action="/inventor/item/list" />
+				<acme:menu-suboption code="master.menu.inventor.items.create"
+					action="/inventor/item/create" />
 				<acme:menu-suboption code="master.menu.inventor.toolkits"
 				    action="/inventor/toolkit/list" />
 				<acme:menu-suboption code="master.menu.inventor.toolkits.create"
@@ -88,18 +90,6 @@
 					action="/inventor/patronage/list" />
 				<acme:menu-suboption code="master.menu.inventor.patronage-reports"
 					action="/inventor/patronage-report/list" />
-<%--			<acme:menu-suboption code="master.menu.inventor.item.create-component"
-				    action="/inventor/item/create-component" />
-				<acme:menu-suboption code="master.menu.inventor.item.component"
-				    action="/inventor/item/list-component" />
-			    <acme:menu-suboption code="master.menu.inventor.item.create"
-				    action="/inventor/item/create-tool" />
-			    <acme:menu-suboption code="master.menu.inventor.item.tool"
-				    action="/inventor/item/list-tool" />   --%>
-				<acme:menu-suboption code="master.menu.inventor.component.list" 
-				    action="/inventor/item/list?type=COMPONENT"/>
-			    <acme:menu-suboption code="master.menu.inventor.tool.list" 
-			        action="/inventor/item/list?type=TOOL"/>
 			</acme:menu-option>
 		</sec:authorize>
 

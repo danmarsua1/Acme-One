@@ -39,13 +39,12 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.inventor ########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.items = Items
+master.menu.inventor.items = Ítems
+master.menu.inventor.items.create = Crear ítem
 master.menu.inventor.toolkits = Listar kits de herramientas
 master.menu.inventor.toolkits.create = Crear kit de herramientas
 master.menu.inventor.patronages = Patrocinios
 master.menu.inventor.patronage-reports = Reportes de los patrocinios
-master.menu.inventor.tool.list = Ver herramientas
-master.menu.inventor.component.list = Ver componentes
 
 # master.menu.provider ########################################################
 
