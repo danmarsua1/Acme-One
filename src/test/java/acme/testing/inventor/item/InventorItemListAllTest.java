@@ -1,12 +1,13 @@
 package acme.testing.inventor.item;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class ItemListAllTest extends TestHarness {
+public class InventorItemListAllTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/item/list-all.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -34,5 +35,19 @@ public class ItemListAllTest extends TestHarness {
 		super.checkInputBoxHasValue("link", link);
 
 		super.signOut();
+	}
+	
+	@Test
+	@Order(20)
+	public void negativeTest() {
+		// HINT: there's no negative test case for this listing, since it doesn't
+		// HINT+ involve filling in any forms.
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.navigate("/inventor/item/list");
+		super.checkPanicExists();
 	}
 }
