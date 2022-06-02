@@ -38,7 +38,7 @@ public class InventorItemController extends AbstractController<Inventor, Item> {
 	protected void initialise() {
 		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
-		super.addCommand("create", "create", this.createService);
+		super.addCommand("create", this.createService);
 		super.addCommand("update", this.updateService);
 		super.addCommand("delete", this.deleteService);
 		super.addCommand("publish", "update", this.publishService);

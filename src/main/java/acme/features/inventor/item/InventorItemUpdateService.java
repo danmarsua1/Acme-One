@@ -19,13 +19,14 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
+		
 		boolean result;
 		Item item;
 		int id;
+		
 		id = request.getModel().getInteger("id");
 		item = this.repository.findOneItemById(id);
-//		result = !item.isPublished();
-		result = request.getPrincipal().getActiveRoleId() == item.getInventor().getId();
+		result = !item.isPublish() && item.getInventor().getId() == request.getPrincipal().getActiveRoleId();
 		return result;
 	}
 	
@@ -34,8 +35,6 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-//		entity.setPublished(false);
-//		this.repository.save(entity);
 		
 		request.bind(entity, errors, "type", "name", "code", "technology", "description", "retailPrice", "link");
 	}
@@ -46,7 +45,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link", "published");
+		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link", "publish");
 	}
 	
 	@Override
@@ -73,7 +72,6 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert request != null;
 		assert entity != null;
 
-		entity.setPublished(false);
 		this.repository.save(entity);
 	}
 }

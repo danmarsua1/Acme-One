@@ -20,13 +20,12 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		assert request != null;
 
 		boolean result;
-		
 		int id;
 		Item item;
+		
 		id = request.getModel().getInteger("id");
 		item = this.repository.findOneItemById(id);
-//		result = item != null && item.getInventor().getId() == request.getPrincipal().getActiveRoleId();
-		result = request.getPrincipal().getActiveRoleId() == item.getInventor().getId();
+		result = item != null && item.getInventor().getId() == request.getPrincipal().getActiveRoleId();
 
 		return result;
 	}
@@ -37,10 +36,10 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 
 		int id;
 		Item result;
+		
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneItemById(id);
 
-		this.repository.save(result);
 		return result;
 	}
 	
@@ -50,6 +49,6 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link", "published");
+		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link", "publish");
 	}
 }

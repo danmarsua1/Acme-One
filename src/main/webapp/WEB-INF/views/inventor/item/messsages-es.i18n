@@ -8,23 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-inventor.item.list.label.code = Código
 inventor.item.list.label.name = Nombre
-inventor.item.list.label.type = Tipo
-inventor.item.list.label.description = Descripción
 inventor.item.list.label.technology = Tecnología
-inventor.item.list.button.create = Crear
+inventor.item.list.label.description = Descripción
+inventor.item.list.label.publish = Publicado
 
 inventor.item.form.label.code = Código
 inventor.item.form.label.type = Tipo
 inventor.item.form.label.name = Nombre
-inventor.item.form.label.description = Descripción
 inventor.item.form.label.technology = Tecnología
+inventor.item.form.label.description = Descripción
 inventor.item.form.label.retailPrice = Precio salida
 inventor.item.form.label.link = Link
-inventor.item.form.label.published = Publicado
-inventor.item.form.button.createComponent = Crear componente
-inventor.item.form.button.createTool = Crear herramienta
+inventor.item.form.label.publish = Publicado
+inventor.item.form.label.listItems = Mis productos
+
+inventor.item.form.button.create = Crear
 inventor.item.form.button.update = Actualizar
 inventor.item.form.button.delete = Eliminar
 inventor.item.form.button.publish = Publicar

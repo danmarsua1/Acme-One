@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.Item;
 import acme.entities.ItemType;
+import acme.entities.Quantity;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
@@ -17,10 +18,13 @@ public interface InventorItemRepository extends AbstractRepository {
 	UserAccount findOneUserAccountById(int id);
 
 	@Query("SELECT item FROM Item item WHERE item.inventor.id = :id")
-	Collection<Item> findManyItemsByInventor(int id);
+	Collection<Item> findAllItemsByInventor(int id);
 	
 	@Query("SELECT inventor FROM Inventor inventor WHERE inventor.id = :id")
 	Inventor findOneInventorById(int id);
+	
+	@Query("SELECT inventor FROM Inventor inventor WHERE inventor.userAccount.id = :id")
+	Inventor findOneInventorByAccountId(int id);
 	
 	@Query("SELECT item FROM Item item WHERE item.id = :id")
 	Item findOneItemById(int id);
@@ -33,4 +37,7 @@ public interface InventorItemRepository extends AbstractRepository {
 	
 	@Query("SELECT item FROM Item item")
 	Collection<Item> findAllItems();
+	
+	@Query("select distinct q from Item i, Quantity q where i.id = q.item.id and i.id = :id")
+	Collection<Quantity> findAllQuantitiesByItem(int id);
 }

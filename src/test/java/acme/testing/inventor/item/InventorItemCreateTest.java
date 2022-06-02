@@ -12,12 +12,12 @@ public class InventorItemCreateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/item/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String type, final String name, final String code, final String technology, final String description, final String retailPrice, final String link, final String published) {
+	public void positiveTest(final int recordIndex, final String type, final String name, final String code, final String technology, final String description, final String retailPrice, final String link, final String publish) {
 	    super.signIn("inventor1", "inventor1");
 
-	    super.clickOnMenu("Inventor", "List tools and components");
+	    super.clickOnMenu("Inventor", "List items");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 		
 		super.clickOnButton("Create");
 		super.checkFormExists();
@@ -30,9 +30,9 @@ public class InventorItemCreateTest extends TestHarness {
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Create");
 		
-		super.clickOnMenu("Inventor", "List tools and components");
+		super.clickOnMenu("Inventor", "List items");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, type);
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, code);
@@ -40,7 +40,7 @@ public class InventorItemCreateTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 4, description);
 		super.checkColumnHasValue(recordIndex, 5, retailPrice);
 		super.checkColumnHasValue(recordIndex, 6, link);
-		super.checkColumnHasValue(recordIndex, 7, published);
+		super.checkColumnHasValue(recordIndex, 7, publish);
 		super.clickOnListingRecord(recordIndex);
 		
 		super.checkFormExists();
@@ -61,9 +61,9 @@ public class InventorItemCreateTest extends TestHarness {
 	public void negativeTest (final int recordIndex, final String type, final String name, final String code, final String technology, final String description, final String retailPrice, final String link) {
 		super.signIn("inventor1", "inventor1");
 		
-		super.clickOnMenu("Inventor", "List components and tools");
+		super.clickOnMenu("Inventor", "List items");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 		
 		super.clickOnButton("Create");
 		super.checkFormExists();

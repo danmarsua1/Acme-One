@@ -45,15 +45,8 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 		assert request != null;
 		
 		Collection<Item> result;
-		Integer masterId;
-		final int inventorId = request.getPrincipal().getActiveRoleId();
 		
-		if(request.getModel().hasAttribute("masterId")){
-			masterId = request.getModel().getInteger("masterId");
-			result = this.repository.findManyItemsByToolkitIdAndInventorId(masterId,inventorId);
-		}else {
-			result = this.repository.findManyItemsByInventor(inventorId);
-		}
+		result = this.repository.findAllItemsByInventor(request.getPrincipal().getActiveRoleId());
 		
 		return result;
 	}
@@ -64,7 +57,6 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "code", "technology");
+		request.unbind(entity, model, "name", "technology", "description", "publish");
 	}
-
 }
