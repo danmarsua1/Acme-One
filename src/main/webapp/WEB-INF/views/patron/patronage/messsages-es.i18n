@@ -22,9 +22,15 @@ patron.patronage.form.label.status = Estado
 patron.patronage.form.label.legalStuff = Términos legales
 patron.patronage.form.label.link = Link
 patron.patronage.form.label.showInventor= Ver inventor
+patron.patronage.form.label.selectInventor = Seleccionar inventor
 
 patron.patronage.form.label.createPatronageReport = Crear Reporte de patrocinio
 patron.patronage.form.button.delete = Borrar
 patron.patronage.form.button.update = Actualizar
-patron.patonage.form.error.too-close-init-date = Fecha inválida
-patron.patonage.form.error.one-month = Fecha inválida
+patron.patronage.form.button.publish = Publicar
+patron.patronage.form.button.create = Crear
+
+patron.patronage.form.error.too-close-init-date = Fecha inválida
+patron.patronage.form.error.one-month = Fecha inválida
+patron.patronage.form.error.non-accepted-currency =  Divisa no aceptada
+patron.patronage.form.error.negative-budget= La cantidad no puede ser negativa

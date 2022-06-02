@@ -1,9 +1,12 @@
 package acme.features.inventor.item;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Item;
+import acme.entities.Quantity;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -11,7 +14,7 @@ import acme.framework.services.AbstractDeleteService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorComponentDeleteService implements AbstractDeleteService<Inventor, Item> {
+public class InventorItemDeleteService implements AbstractDeleteService<Inventor, Item> {
 
 	@Autowired
 	protected InventorItemRepository repository;
@@ -19,7 +22,15 @@ public class InventorComponentDeleteService implements AbstractDeleteService<Inv
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
-		return true;
+		
+		boolean result;
+		int id;
+		Item item;
+
+		id = request.getModel().getInteger("id");
+		item = this.repository.findOneItemById(id);
+		result = !item.isPublish() && item.getInventor().getId() == request.getPrincipal().getActiveRoleId();
+		return result;
 	}
 	
 	@Override
@@ -37,13 +48,13 @@ public class InventorComponentDeleteService implements AbstractDeleteService<Inv
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link");
+		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link", "publish");
 	}
 	
 	@Override
 	public Item findOne(final Request<Item> request) {
 		assert request != null;
-
+		
 		Item result;
 		int id;
 
@@ -64,8 +75,13 @@ public class InventorComponentDeleteService implements AbstractDeleteService<Inv
 	public void delete(final Request<Item> request, final Item entity) {
 		assert request != null;
 		assert entity != null;
-		
-		this.repository.deleteQuantityByItemId(entity.getId());
+		 
+		Collection<Quantity> quantities;
+		quantities = this.repository.findAllQuantitiesByItem(entity.getId());
+		// Delete its quantities
+		for (final Quantity q : quantities) {
+			this.repository.delete(q);
+		}
 		this.repository.delete(entity);
-	}
+	}  
 }

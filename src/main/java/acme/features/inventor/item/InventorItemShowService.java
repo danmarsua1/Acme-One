@@ -12,22 +12,19 @@ import acme.roles.Inventor;
 @Service
 public class InventorItemShowService implements AbstractShowService<Inventor, Item> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected InventorItemRepository repository;
-
-	// AbstractUpdateService<Inventor, Item> interface -----------------
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
 
 		boolean result;
-		int itemId;
+		int id;
 		Item item;
-		itemId = request.getModel().getInteger("id");
-		item = this.repository.findOneItemById(itemId);
+		
+		id = request.getModel().getInteger("id");
+		item = this.repository.findOneItemById(id);
 		result = item != null && item.getInventor().getId() == request.getPrincipal().getActiveRoleId();
 
 		return result;
@@ -37,10 +34,11 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 	public Item findOne(final Request<Item> request) {
 		assert request != null;
 
-		int itemId;
+		int id;
 		Item result;
-		itemId = request.getModel().getInteger("id");
-		result = this.repository.findOneItemById(itemId);
+		
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneItemById(id);
 
 		return result;
 	}
@@ -51,6 +49,6 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "code", "type", "name", "description", "technology" , "retailPrice", "link", "published");
+		request.unbind(entity, model, "type", "name", "code", "technology", "description", "retailPrice", "link", "publish");
 	}
 }

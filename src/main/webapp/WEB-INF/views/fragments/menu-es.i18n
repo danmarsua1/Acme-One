@@ -39,15 +39,12 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.inventor ########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.items = Items
+master.menu.inventor.items = Ítems
+master.menu.inventor.items.create = Crear ítem
 master.menu.inventor.toolkits = Listar kits de herramientas
 master.menu.inventor.toolkits.create = Crear kit de herramientas
 master.menu.inventor.patronages = Patrocinios
 master.menu.inventor.patronage-reports = Reportes de los patrocinios
-master.menu.inventor.item.tool = Ver herramientas
-master.menu.inventor.item.component = Ver componentes
-master.menu.inventor.item.create-component = Crear nuevo componente
-master.menu.inventor.item.create = Crear nueva herramienta
 
 # master.menu.provider ########################################################
 
@@ -62,7 +59,8 @@ master.menu.consumer.favourite-link = Enlace favorito
 # master.menu.patron ##########################################################
 
 master.menu.patron = Patrón
-master.menu.patron.patronages = Patrocinios
+master.menu.patron.patronages = Listar patrocinios
+master.menu.patron.patronages.create = Crear patrocionio
 master.menu.patron.dashboard = Panel de indicadores
 master.menu.patron.patronage-reports = Informe de patrocinios
 
@@ -79,7 +77,6 @@ master.menu.user-account.become-patron = Hazte patron
 master.menu.user-account.inventor = Datos del inventor
 master.menu.user-account.become-inventor = Hazte inventor
 
-
 # master.menu.any #######################################################
 
 master.menu.any = Cualquiera
@@ -87,6 +84,8 @@ master.menu.any.user-account = Cuentas de usuario
 master.menu.any.toolkits = Kits de herramientas 
 master.menu.any.item = Ítems
 master.menu.any.chirp = Chirp
+master.menu.any.component.list = Ver componentes
+master.menu.any.tool.list = Ver herramientas
 master.menu.any.favourite-link = Enlace favorito
 master.menu.any.configuration = Configuración
 

@@ -20,23 +20,17 @@ public class InventorItemController extends AbstractController<Inventor, Item> {
 	@Autowired
 	protected InventorItemShowService showService;
 	
-    @Autowired
-	protected InventorComponentListService listComponentService;
+	@Autowired
+	protected InventorItemCreateService createService;
 	
 	@Autowired
-	protected InventorComponentShowService showComponentService;
+	protected InventorItemUpdateService updateService;
 	
 	@Autowired
-	protected InventorComponentCreateService createComponentService;
+	protected InventorItemDeleteService deleteService;
 	
 	@Autowired
-	protected InventorComponentUpdateService updateComponentService;
-	
-	@Autowired
-	protected InventorComponentDeleteService deleteComponentService;
-	
-	@Autowired
-	protected InventorItemPublishService publishItemService;
+	protected InventorItemPublishService publishService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -44,11 +38,9 @@ public class InventorItemController extends AbstractController<Inventor, Item> {
 	protected void initialise() {
 		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
-		super.addCommand("create-component", "create", this.createComponentService);
-		super.addCommand("update-component", "update", this.updateComponentService);
-		super.addCommand("delete-component", "delete", this.deleteComponentService);
-		super.addCommand("publish", "update", this.publishItemService);
-		super.addCommand("list-component","list", this.listComponentService);
-		super.addCommand("show-component","show", this.showComponentService);
+		super.addCommand("create", this.createService);
+		super.addCommand("update", this.updateService);
+		super.addCommand("delete", this.deleteService);
+		super.addCommand("publish", "update", this.publishService);
 	}
 }

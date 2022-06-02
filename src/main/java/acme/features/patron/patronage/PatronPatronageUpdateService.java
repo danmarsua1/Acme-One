@@ -11,6 +11,7 @@ import acme.entities.patronage.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
+import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Patron;
 
@@ -51,10 +52,13 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		UserAccount inventor;
 
 		request.unbind(entity, model, "code", "creationMoment", "initDate", "finishDate",
-			"budget" , "status", "legalStuff", "link");
-		
+			"budget" , "status", "legalStuff", "link", "published");
+		inventor = entity.getInventor().getUserAccount();
+		model.setAttribute("inventorId", inventor.getId());
 	}
 
 	@Override
@@ -75,15 +79,6 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		if(!errors.hasErrors("code")) {
-			Patronage existing;
-			
-			existing = this.repository.findOnePatronageByCode(entity.getCode());
-			if(existing!=null) {
-			errors.state(request, existing.getId()==entity.getId(), "code", "patron.patronage.form.error.duplicated");
-			}
-		}
 		if (!errors.hasErrors("initDate")) {
 			Calendar calendar;
 
@@ -102,25 +97,18 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 			errors.state(request, entity.getFinishDate().after(finish), "finishDate", "patron.patonage.form.error.one-month");
 		}
 		if(!errors.hasErrors("budget")) {
-			/*final String [] currencies = this.repository.findConfiguration().getAcceptedCurrencies().split(",");
-			Boolean acceptedCurrencies = false;
-			for(int i = 0; i<currencies.length;i++) {
-				if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
-					acceptedCurrencies=true;
-				}
-			}*/
-			/*final String upperCaseCurrency = entity.getBudget().getCurrency().toUpperCase();
+			final String upperCaseCurrency = entity.getBudget().getCurrency().toUpperCase();
 			boolean accepted = false;
 			
 			// Manage likely currencies
-			for (final String acceptedCurrency : this.repository.findConfiguration().getAcceptedCurrencies().toUpperCase().split(".")) {
+			for (final String acceptedCurrency : this.repository.findConfiguration().getAcceptedCurrencies().toUpperCase().split("[.]")) {
 				if (upperCaseCurrency.equals(acceptedCurrency)) {
 					accepted = true;
 					break;
 				}
-			}*/
+			}
 			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
-			//errors.state(request, accepted, "budget", "patron.patronage.form.error.non-accepted-currency");
+			errors.state(request, accepted, "budget", "patron.patronage.form.error.non-accepted-currency");
 		}
 	}
 

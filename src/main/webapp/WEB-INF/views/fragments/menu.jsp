@@ -78,8 +78,10 @@
 
 		<sec:authorize access="hasRole('Inventor')">
 			<acme:menu-option code="master.menu.inventor">
-				<acme:menu-suboption code="master.menu.inventor.items"
+			    <acme:menu-suboption code="master.menu.inventor.items"
 					action="/inventor/item/list" />
+				<acme:menu-suboption code="master.menu.inventor.items.create"
+					action="/inventor/item/create" />
 				<acme:menu-suboption code="master.menu.inventor.toolkits"
 				    action="/inventor/toolkit/list" />
 				<acme:menu-suboption code="master.menu.inventor.toolkits.create"
@@ -88,14 +90,6 @@
 					action="/inventor/patronage/list" />
 				<acme:menu-suboption code="master.menu.inventor.patronage-reports"
 					action="/inventor/patronage-report/list" />
-				<acme:menu-suboption code="master.menu.inventor.item.create-component"
-				    action="/inventor/item/create-component" />
-				<acme:menu-suboption code="master.menu.inventor.item.component"
-				    action="/inventor/item/list-component" />
-			    <acme:menu-suboption code="master.menu.inventor.item.create"
-				    action="/inventor/item/create-tool" />
-			    <acme:menu-suboption code="master.menu.inventor.item.tool"
-				    action="/inventor/item/list-tool" />
 			</acme:menu-option>
 		</sec:authorize>
 
@@ -105,6 +99,8 @@
 					action="/patron/patron-dashboard/show" />
 			<acme:menu-suboption code="master.menu.patron.patronages"
 					action="/patron/patronage/list" />
+			<acme:menu-suboption code="master.menu.patron.patronages.create"
+					action="/patron/patronage/create"/>
 			<acme:menu-suboption code="master.menu.patron.patronage-reports"
 					action="/patron/patronage-report/list" />
 		</acme:menu-option>

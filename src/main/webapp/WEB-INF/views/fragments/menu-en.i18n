@@ -40,14 +40,11 @@ master.menu.administrator.shut-down = Shut down
 
 master.menu.inventor = Inventor
 master.menu.inventor.items = Items
+master.menu.inventor.items.create = Create item
 master.menu.inventor.toolkits = List toolkits
 master.menu.inventor.toolkits.create = Create toolkit
 master.menu.inventor.patronages = Patronages
 master.menu.inventor.patronage-reports = Patronage reports
-master.menu.inventor.item.tool = List tools
-master.menu.inventor.item.component = List components
-master.menu.inventor.item.create-component = Create new component
-master.menu.inventor.item.create = Create new tool
 
 # master.menu.provider ########################################################
 
@@ -62,7 +59,8 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.patron ##########################################################
 
 master.menu.patron = Patron
-master.menu.patron.patronages = Patronages
+master.menu.patron.patronages = List Patronages
+master.menu.patron.patronages.create = Create Patronage
 master.menu.patron.dashboard = Dashboard
 master.menu.patron.patronage-reports = Patronage Report
 
@@ -86,11 +84,13 @@ master.menu.any.user-accounts = User Accounts
 master.menu.any.toolkits = Toolkits 
 master.menu.any.item = Items
 master.menu.any.chirp = Chirp
+master.menu.any.component.list = List components
+master.menu.any.tool.list = List tools
 master.menu.any.favourite-link = Favourite link
+master.menu.any.configuration = Configuration
 
 # master.menu.authenticated ####################################################
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.announcement = Announcements
 master.menu.authenticated.configuration = Configuration
-
