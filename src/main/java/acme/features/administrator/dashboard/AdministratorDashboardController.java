@@ -1,17 +1,19 @@
-package acme.forms.patron;
+package acme.features.administrator.dashboard;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import acme.forms.administrator.AdministratorDashboard;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Patron;
+import acme.framework.roles.Administrator;
 
 @Controller
-public class PatronDashboardController extends AbstractController<Patron,PatronDashboard> {
+public class AdministratorDashboardController extends AbstractController<Administrator,AdministratorDashboard>{
+	
 	@Autowired
-	protected PatronDashboardShowService showService;
+	protected AdministratorDashboardShowService showService;
 	
 	@PostConstruct
 	protected void initialise() {

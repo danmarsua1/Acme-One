@@ -1,8 +1,9 @@
-package acme.forms.administrator;
+package acme.features.administrator.dashboard;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.forms.administrator.AdministratorDashboard;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Administrator;

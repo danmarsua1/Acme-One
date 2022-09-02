@@ -1,4 +1,4 @@
-package acme.forms.patron;
+package acme.features.administrator.dashboard;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -6,8 +6,41 @@ import org.springframework.stereotype.Repository;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface PatronDashboardRepository extends AbstractRepository {
+public interface AdministratorDashboardRepository extends AbstractRepository {
 
+
+	// Manage COMPONENTS
+	@Query("select count(i) from Item i where i.type = 'COMPONENT'")
+	Integer totalNumberOfComponents();
+
+	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
+	Double averageRetailPriceOfComponents();
+
+	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
+	Double deviationRetailPriceOfComponents();
+	
+	@Query("select min(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
+	Double minimumRetailPriceOfComponents();
+
+	@Query("select max(i.retailPrice.amount) from Item i where i.type = 'COMPONENT' group by i.retailPrice.currency")
+	Double maximumRetailPriceOfComponents();
+	
+	// Manage TOOLS
+	@Query("select count(i) from Item i where i.type = 'TOOL'")
+	Integer totalNumberOfTools();
+	
+	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
+	Double averageRetailPriceOfTools();
+
+	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
+	Double deviationRetailPriceOfTools();
+
+	@Query("select min(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
+	Double minimumRetailPriceOfTools();
+	
+	@Query("select max(i.retailPrice.amount) from Item i where i.type = 'TOOL' group by i.retailPrice.currency")
+	Double maximumRetailPriceOfTools();
+	
 	// Manage TOTALS
 	@Query("select count(p) from Patronage p where p.status = 'PROPOSED'")
 	Integer totalNumberOfProposedPatronages();
